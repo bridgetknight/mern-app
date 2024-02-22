@@ -17,14 +17,13 @@ function Alerts() {
     fetchData();
   }, []);
 
-
   return (
     <div>
       {alerts.map(alert => (
         <Card
         body
         outline
-        color="success"
+        bg="info"
         className="mx-1 my-2"
         style={{ width: "30rem" }}
       >
@@ -36,7 +35,7 @@ function Alerts() {
       ))}
 
 
-        <h1>Alerts!</h1>
+        <h1>Loading alerts...</h1>
       {alerts.map(alert => (
         <div key={alert.id}>
           <h3>{alert.attributes.header}</h3>

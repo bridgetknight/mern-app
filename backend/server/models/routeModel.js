@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-//user schema/model
+//route schema/model
 const routeSchema = new mongoose.Schema(
   {
     userId: { 
@@ -17,12 +17,12 @@ const routeSchema = new mongoose.Schema(
       required: true,
       label: "destination",
     },
-    stations: {
+    locations: {
         type: [{
           type: mongoose.Schema.Types.ObjectId,
           ref: "locationModel"
         }],
-        validate: [arrayLimit, "{PATH} must have at least 2 stations."]
+        validate: [arrayLimit, "{PATH} must have at least 2 locations."]
       },
       label: "stations"
   },

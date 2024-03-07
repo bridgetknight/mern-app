@@ -4,7 +4,7 @@ POST http://localhost:8081/location/saveLocation
 Content-Type: application/json
 
 {
-    "streetAddress": "Tremont Street and Winter Street",
+    "streetAddress": "2137 Park Drive",
     "city": "Boston",
     "state": "Massachusetts",
     "zipCode": "02108",

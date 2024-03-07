@@ -1,8 +1,0 @@
-### get all routes by userId
-GET http://localhost:8095/route/:userId Content-Type: application/json
-
-### get single route by routeId
-GET http://localhost:8095/route/:routeId Content-Type: application/json
-
-### delete all routes by userId
-POST http://localhost:8095/route/:userId

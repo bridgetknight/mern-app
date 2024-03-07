@@ -1,0 +1,17 @@
+# Correct GET request for getting all routes for a given user
+###
+GET http://localhost:8081/route/getAllRoutes/65a9605d238e0f4fcf0de0e1 
+Content-Type: application/json
+
+# Incorrect GET request -- user does not exist
+### 
+GET http://localhost:8096/route/FakeUser123 
+Content-Type: application/json
+
+
+### get single route by routeId
+GET http://localhost:8096/route/:routeId 
+Content-Type: application/json
+
+### delete all routes by userId
+POST http://localhost:8096/route/:userId

@@ -24,7 +24,7 @@ router.get('/getAllRoutes/:userId', async (req, res) => {
         return res.json(routes);
     } catch(error) {
         console.error(error);
-        res.status(500).json({ error: "Error fetching routes" });
+        res.status(404).json({ error: "No routes found" });
     }
 });
 

@@ -37,13 +37,13 @@ Accept: application/json
 
 # Get one route by route ID
 ###
-GET http://localhost:8081/route/getRouteById/65e937692c46ddc4f1dc42b5
+GET http://localhost:8081/route/getRouteById/65e95934f09969c5456e2868
 Content-Type: application/json
 
 # Correct POST delete all per 1 user
 ###
 POST http://localhost:8081/route/deleteAllRoutes/65a9605d238e0f4fcf0de0e1
 
-# Correct POST delete all per 1 user
+# Incorrect POST delete all per 1 user
 ###
 POST http://localhost:8081/route/deleteAllRoutes/65a9605d238e0f4fcf0de0e7

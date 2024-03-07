@@ -10,7 +10,8 @@ router.post('/saveLocation', async (req, res) => {
         city: req.body.city,
         state: req.body.state,
         zipCode: req.body.zipCode,
-        userId: req.body.userId
+        userId: req.body.userId,
+        label: req.body.label
       });
   
       // Save the location to the database

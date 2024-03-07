@@ -1,27 +1,36 @@
 const express = require("express");
 const router = express.Router();
-const z = require('zod');
 const routeModel = require('../models/routeModel')
 
-router.post('/editRoute/:routeId', async (req, res) =>
-{
-    // store new route information
-    const {start, destination, stops, label, userId} = req.body
+router.put('/editRoute/:routeId', async (req, res) => {
+    try {
+        // Get new route information from body
+        const { start, destination, stops, label, userId } = req.body;
+        
+        // Get route ID from request parameters
+        const routeId = req.params.routeId;
 
-    // get route to edit
-    const routeId = req.params.routeId;
+        // Find and update the route using findByIdAndUpdate
+        const updatedRoute = await routeModel.findByIdAndUpdate(routeId, {
+            start,
+            destination,
+            stops,
+            label,
+            userId
+        }, { new: true }); // Set { new: true } to return the updated document
 
-    // find and route using stored information
-    routeModel.findByIdAndUpdate(routeId, {
-        start : start,
-        start : start,
-        destination : destination,
-        stops : stops
-    }, function (err, route) {
-    if (err){
-        console.log(err);
-    }});
+        if (!updatedRoute) {
+            // If the route with the provided ID was not found
+            return res.status(404).json({ error: "Route not found" });
+        }
 
-})
+        // Send a success response with the updated route
+        res.status(200).json({ message: "Route updated successfully", updatedRoute });
+    } catch (error) {
+        // Handle any errors
+        console.error("Error updating route:", error);
+        res.status(500).json({ error: "An error occurred while updating the route" });
+    }
+});
 
 module.exports = router;

@@ -8,7 +8,8 @@ router.post("/saveRoute", async (req, res) => {
       userId: req.body.userId,
       start: req.body.start,
       destination: req.body.destination,
-      locations: req.body.locations,
+      stops: req.body.stops,
+      label: req.body.label
     });
 
     await route.save();

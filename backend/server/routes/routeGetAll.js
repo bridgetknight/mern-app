@@ -4,15 +4,27 @@ const routeModel = require('../models/routeModel')
 
 router.get('/getAllRoutes/:userId', async (req, res) => {
     try {
-        const route = await routeModel.find({ userId: req.params.userId });
-        if (Object.keys(route).length === 0) {
-            // route is an empty object or empty JSON
-            console.log("This user has no routes");
+
+        // Check if the user ID exists in the user table
+        const user = await userModel.findById(req.params.userId);
+        if (!user) {
+            // User does not exist
+            return res.status(404).json({ error: 'User not found' });
         }
-        return res.json(route);
+
+        // User exists, proceed to fetch routes
+        const routes = await routeModel.find({ userId: req.params.userId });
+        
+        if (routes.length === 0) {
+            // No routes found for the user
+            return res.status(404).json({ message: "This user has no routes" });
+        }
+
+        // Routes found, return them
+        return res.json(routes);
     } catch(error) {
         console.error(error);
-        res.status(500).json({error : "Error fetching routes"});
+        res.status(500).json({ error: "Error fetching routes" });
     }
 });
 

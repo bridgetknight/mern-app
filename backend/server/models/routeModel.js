@@ -24,21 +24,27 @@ const routeSchema = new mongoose.Schema(
       required: true,
       label: "destination",
     },
-    locations: {
+    stops: {
         type: [{
           type: mongoose.Schema.Types.ObjectId,
           ref: "Locations"
         }],
-        validate: [arrayLimit, "{PATH} must have at least 2 locations."],
-        label: "locations",
+        validate: {
+          validator: function(arr) {
+              return arr.length >= 2;
+          },
+          message: '{PATH} must have at least 2 locations.'
+      },
+        label: "stops",
         required: true
       },
+    label: {
+      type: String,
+      required: false,
+      label: "label"
+    }
   },
   { collection: "routes" }
 );
-
-function arrayLimit(val) {
-    return val.length >= 2;
-  };
 
 module.exports = mongoose.model('routes', routeSchema)

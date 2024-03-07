@@ -4,11 +4,12 @@ POST http://localhost:8081/location/saveLocation
 Content-Type: application/json
 
 {
-    "streetAddress": "10 Pleasant Street",
-    "city": "Salem",
+    "streetAddress": "Tremont Street and Winter Street",
+    "city": "Boston",
     "state": "Massachusetts",
-    "zipCode": "01941",
-   "userId": "65a9605d238e0f4fcf0de0e1"
+    "zipCode": "02108",
+    "userId": "65a9605d238e0f4fcf0de0e1",
+    "label": "Park Street"
 }
 
 # Incorrect POST

@@ -31,7 +31,7 @@ router.post('/editUser', async (req, res) =>
         username : username, 
         email : email, 
         password : hashPassword
-    } ,function (err, user) {
+    }, function (err, user) {
     if (err){
         console.log(err);
     } else {

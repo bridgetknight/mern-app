@@ -5,8 +5,8 @@ Content-Type: application/json
 
 # Incorrect GET request -- user does not exist
 ### 
-GET http://localhost:8081/route/FakeUser123 
-Content-Type: application/json
+GET http://localhost:8081/route/getAllRoutes/FakeUser123 
+#Content-Type: application/json
 
 # Correct POST request
 ###
@@ -23,17 +23,17 @@ Content-Type: application/json
 
 # Correct edit POST request
 ###
-PUT http://localhost:8081/route/editRoute/65e941b8372a26bf25732b09
-Content-Type: application/json
-Accept: application/json
+#PUT http://localhost:8081/route/editRoute/65e941b8372a26bf25732b09
+#Content-Type: application/json
+#Accept: application/json
 
-{
-    "start": "65e9251a42a9d721d45e7810",
-    "destination": "65e9254842a9d721d45e7812", 
-    "stops": ["65e927d007e18b3428c2ef24", "65e929cb07e18b3428c2ef26"],
-    "label": "University Commute",
-    "userId": "65a9605d238e0f4fcf0de0e1",
-}
+#{
+#    "start": "65e9251a42a9d721d45e7810",
+#    "destination": "65e9254842a9d721d45e7812", 
+#    "stops": ["65e927d007e18b3428c2ef24", "65e929cb07e18b3428c2ef26"],
+#    "label": "University Commute",
+#    "userId": "65a9605d238e0f4fcf0de0e1",
+#}
 
 # Get one route by route ID
 ###

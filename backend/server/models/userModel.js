@@ -12,18 +12,36 @@ const newUserSchema = new mongoose.Schema(
       type: String,
       required: true,
       label: "email",
+      unique: true,
+      lowercase: true,
     },
     password: {
       required: true,
       type: String,
-      min : 8
+      min: 8,
     },
+    biography: {
+      type: String,
+      default: "",
+    },
+    savedLocations: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Location",
+      },
+    ],
+    savedRoutes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Route",
+      },
+    ],
     date: {
       type: Date,
       default: Date.now,
     },
   },
-  { collection: "users" }
+  { timestamps: true, collection: "users" }
 );
 
-module.exports = mongoose.model('users', newUserSchema)
+module.exports = mongoose.model("Users", newUserSchema);

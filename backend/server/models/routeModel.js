@@ -1,36 +1,50 @@
 const mongoose = require("mongoose");
+const Location = require("./locationModel");
 
-//user schema/model
+//route schema/model
 const routeSchema = new mongoose.Schema(
   {
     userId: { 
         type: mongoose.Schema.Types.ObjectId, 
-        ref: "userSchema" 
+        ref: "Users" 
     },
     start: {
-      type: Location,
+      type: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Location"
+      }],
       required: true,
       label: "start",
     },
     destination: {
-      type: Location,
+      type: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Location"
+      }],
       required: true,
       label: "destination",
     },
-    stations: {
+    stops: {
         type: [{
           type: mongoose.Schema.Types.ObjectId,
-          ref: "locationModel"
+          ref: "Locations"
         }],
-        validate: [arrayLimit, "{PATH} must have at least 2 stations."]
+        validate: {
+          validator: function(arr) {
+              return arr.length >= 2;
+          },
+          message: '{PATH} must have at least 2 locations.'
       },
-      label: "stations"
+        label: "stops",
+        required: true
+      },
+    label: {
+      type: String,
+      required: false,
+      label: "label"
+    }
   },
   { collection: "routes" }
 );
-
-function arrayLimit(val) {
-    return val.length >= 2;
-  };
 
 module.exports = mongoose.model('routes', routeSchema)

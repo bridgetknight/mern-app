@@ -1,4 +1,4 @@
-POST http://localhost:8080/user/signup
+POST http://localhost:8081/user/signup
 Content-Type: application/json 
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:8080/user/login
+POST http://localhost:8081/user/login
 Content-Type: application/json 
 
 {
@@ -50,3 +50,43 @@ Content-Type: application/json
 
 ###
 POST  http://localhost:8081/user/deleteAll
+
+
+###
+GET  http://localhost:8081/location/getAll
+Content-Type: application/json 
+
+
+###
+GET  http://localhost:8081/location/getLocationById/65eb2ab8a69fc574373a9714
+Content-Type: application/json 
+
+
+###
+POST  http://localhost:8081/location/addLocation
+Content-Type: application/json 
+
+{
+    "streetAddress" : "392 Dover Court",
+    "city" : "Long Island",
+    "state" : "NY",
+    "postalCode" : 87654
+}
+
+
+###
+DELETE   http://localhost:8081/location/deleteLocationById/65eb2ab8a69fc574373a9788
+Content-Type: application/json 
+
+
+
+###
+PUT  http://localhost:8081/location/editLocationById/65eb274fa69fc574373a970f
+Content-Type: application/json 
+
+{
+    "streetAddress" : "715 Bridge St",
+    "city" : "Brooklyn",
+    "state" : "NY",
+    "postalCode" : 93892
+}

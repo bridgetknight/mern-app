@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, height=1080, shrink-to-fit=yes">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Asap:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://js.radar.com/v4.1.18/radar.css" rel="stylesheet">
+    <script src="https://js.radar.com/v4.1.18/radar.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Home</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            const textInputs = document.querySelectorAll('input[type="text"]');
+            for (const input of textInputs) {
+                input.value = '';
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="header" id="main_header">
+        <div class="logo"></div>
+        <div class="title"><span>MBTA Trip Assistant</span></div>
+        <div class="header_link" id="route_planner"><span><a href="#">Route Planner</a></span></div>
+        <div class="header_link" id="route_history"><span><a href="#">Route History</a></span></div>
+        <div class="header_link" id="help"><span><a href="#">Help</a></span></div>
+        <div class="header_link" id="login"><span>Log In</span></div>
+    </div>
+    <div class="header" id="sub_header">
+        <div class="header_link" id="subtitle"><span>Route Planner</span></div>
+    </div>
+    <div class="sidebar" id="top_sidebar">
+        <div class="letter_circle" id="a_circle"></div>
+        <div class="location_letter" id="a_letter">A</div>
+        <div id="location_inputs">
+            <div id="starting_location_div">
+                <input type="text" id="starting_location" class="location_box" placeholder="Search for a location...", value="">
+            </div>
+            <div id="ending_location_div">
+                <input type="text" id="ending_location" class="location_box" placeholder="Search for a location...", value="">
+            </div>
+        </div>
+        <button class="save_location" id="save_a">Save Location</button>
+        <button class="save_location" id="save_b">Save Location</button>
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="letter_circle" id="b_circle"></div>
+        <div class="location_letter" id="b_letter">B</div>
+
+        <script type="text/javascript">
+            goButton = document.getElementById("go_button");
+            saveA = document.getElementById("save_a");
+            saveB = document.getElementById("save_b");
+            Radar.initialize('prj_live_pk_b4d3412f3d0dd3a0954d78d19f342d06f0bbddff');
+            
+            let addressA = null;
+            let addressB = null;
+            // Function to handle starting location autocomplete
+            function handleStartingLocation(event) {
+                const input = event.target;
+                if (input.id === 'starting_location') {
+                    // Call Radar autocomplete with starting_location container ID
+                        Radar.ui.autocomplete({
+                            container: 'starting_location',
+                            width: '252px',
+                            response: true,
+                            limit: 5,
+                            minCharacters: 3,
+                            onSelection: (address) => {
+                                addressA = address;
+                            }
+                        });
+                }
+            }
+
+            // Function to handle ending location autocomplete
+            function handleEndingLocation(event) {
+                const input = event.target;
+                if (input.id === 'ending_location') {
+                    // Call Radar autocomplete with ending_location container ID
+                    Radar.ui.autocomplete({
+                        container: 'ending_location',
+                        width: '252px',
+                        response: true,
+                        limit: 5,
+                        minCharacters: 3,
+                        showMarkers: true,
+                        markerColor: '#acbdc8',
+                        onSelection: (address) => {
+                            addressB = address;
+                        }
+                    });
+                }
+            }
+
+            // Attach event listeners to both input elements
+            document.getElementById('starting_location').addEventListener('keyup', handleStartingLocation);
+            document.getElementById('ending_location').addEventListener('keyup', handleEndingLocation);
+
+            saveA.addEventListener("click", () => {
+                console.log(addressA);
+
+                if(addressA) {
+                    handleLocation(addressA);
+                }
+            })
+            
+            saveB.addEventListener("click", () => {
+                console.log(addressB);
+
+                if(addressB) {
+                    handleLocation(addressB);
+                }
+            })
+
+            function handleLocation(address) {
+                const labelInputBox = $("#label_input");
+                const labelInput = labelInputBox.val();
+            
+                // Open label popup
+                if ($("#save_loc_form").is(":hidden")) {
+                    $("#save_loc_form").toggle();
+                }
+
+                // Get information from address
+                const streetAddress = address.addressLabel;
+                const city = address.city;
+                const postalCode = address.postalCode;
+                const state = address.state;
+
+                $("#loc_confirm").click(function () {
+                    if(!labelInput.trim()) {
+                        alert("Invalid location!");
+                    }
+                    else {
+                        saveLocation(streetAddress, city, state, postalCode, labelInput);
+                    }
+                })
+
+                $("#loc_cancel").click(function() {
+                    $("#save_loc_form").toggle();
+                    console.log("cancel");
+                })
+            }
+
+            function saveLocation(address) {
+
+            }
+        </script>
+        <button id="go_button" class="y_button">GO</button>
+        <div class="sidebar_arrow"></div>
+    </div>
+    <div class="sidebar" id="bottom_sidebar">
+        <span style="position: absolute; top:50px; padding: 0 25px 0 25px; text-align: center; font-family:'Asap'; color:#858484">
+            Enter a starting location and destination to get route recommendations.
+        </span>
+    </div>
+    <div id="map"/>
+    <script type="text/javascript">
+
+        const map = Radar.ui.map({
+            container: 'map',
+            center: [-71.1589,42.3601],
+            style: 'radar-default-v1',
+            zoom: 11
+        });
+
+        setTimeout(function() {
+            map.resize();
+        }, 100);
+    </script>
+    <div id="save_loc_form" style="display:none;">
+        <span style="font-family:'Asap';font-size:16px;">Enter a name for your saved location.</span>
+        <input type="text" id="label_input" placeholder="Home">
+        <button id="loc_confirm" class="y_button">Confirm</button>
+        <button class="y_button cancel_button" id="loc_cancel">Cancel</button>
+    </div>
+</body>
+
+<style>
+    body {
+        overflow-y: hidden;
+    }
+
+    html {
+        zoom: 0.8;
+    }
+
+    #save_loc_form {
+        position: absolute;
+        top: 20px;
+        left: 350px;
+        z-index: 3;
+        height: 120px;
+        width: 300px;
+        text-align: center;
+        
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.2); 
+    }
+
+    #label_input {
+        position: absolute;
+        top: 56px;
+        left: 40px;
+        padding: 2px;
+        height: 25px;
+        width: 260px;
+        border: 0;
+        border-bottom: 2px solid grey;
+        outline: 0;
+        font-family: Asap;
+        font-size: 16px;
+    }
+
+    #label_input:placeholder {
+        font-size: 16px;
+        font-family: Asap;
+    }
+
+    #loc_cancel {
+        bottom: 10px;
+        right: 93px;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .title {
+        font-family: "Allan";
+        font-size: 28px;
+        letter-spacing: 1px;
+        color: #fff;
+        font-weight: 550;
+    }
+
+    .header {
+        justify-content: left;
+        align-items: center;
+        display: flex;
+        position: absolute;
+        width: 1920px;
+        padding-left: 30px;
+    }
+
+    #main_header {
+        height: 68px;
+        top: 0;
+        left: 0;
+        background-color:#272727;
+        z-index: 3;
+    }
+
+    .header_link {
+        font-size: 20px;
+        font-family: "Asap";
+        font-weight: 500;
+        color: #fff;
+        padding-left: 100px;
+    }
+
+    #route_planner {
+        color: #09ACCF;
+    }
+
+    #login {
+        position: relative;
+        left: 920px;
+    }
+
+    #sub_header {
+        position: absolute;
+        background-color:rgb(255, 255, 255);
+        height: 86px;
+        top: 68px;
+        left: 0px;
+        box-shadow: 0 0 10px #727272;
+        z-index: 2;
+    }
+
+    #subtitle {
+        color: #000;
+        position: absolute;
+        font-weight: 600;
+        padding-left: 0;
+        left: calc(0.5 * 1920px);
+    }
+
+    .sidebar {
+        width: 336px;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        box-shadow: 3px 0px 15px #8d8d8d;
+    }
+
+    #top_sidebar {
+        background-color: #2184C4;
+        height: 306px;
+        top: 154px;
+        width: 336;
+    }
+
+    #bottom_sidebar {
+        opacity: 0.8;
+        background-color: white;
+        top: 460px;
+        height: 100%;
+        z-index: -1;
+    }
+
+    .sidebar_arrow {
+        position: absolute;
+        top: 306px;
+        left: calc(0.45 * 100%);
+        width: 0; 
+        height: 0; 
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 20px solid #2184C4;
+      }
+
+      .save_location {
+        position: absolute;
+        left: 225px;
+        color: #fff;
+        font-family: "Asap";
+        background-color: transparent;
+        border: 0px;
+        cursor: pointer;
+        padding-top: 10px;
+      }
+
+      #save_a {
+        top: 65px;
+      }
+
+      #location_inputs {
+        padding-left: 65px;
+        padding-top: 65px;
+      }
+
+      #starting_location {
+        top: 23px;
+        left: 65px;
+      }
+
+      #ending_location {
+        top: 132px;
+        left: 65px;
+      }
+
+      #ending_location_div {
+        padding-top: 110px;
+      }
+      
+      .location_box {
+        position: absolute;
+        padding: 2px;
+        padding-left: 20px;
+        height: 42px;
+        width: 230px;
+        border-radius: 9px;
+        box-shadow: inset 0 5px 5px #939393;
+        border: none;
+        outline-width: 0;
+        font-family: "Asap";
+        font-size: 16px;
+      }
+
+      .location_box::placeholder {
+        font-family: "Asap";
+        position: relative;
+        font-size: 16px;
+      }
+
+      .letter_circle {
+        left: 8px;
+        position:absolute;
+        background-color: transparent;
+        border: 5px solid white;
+        height: 35px;
+        width: 35px;
+        border-radius: 50%
+      }
+
+      #a_circle {
+        top: 20px;
+      }
+
+      #b_circle {
+        top: 133px;
+      }
+
+      .dots {
+        position: absolute;
+        top: 61px;
+      }
+
+      .dot {
+        left: 28px;
+        position:relative;
+        margin-top: 14px;
+        background-color: #D9D9D9;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%; 
+      }
+
+      .location_letter {
+        position: absolute;
+        font-family: "Asap";
+        font-size: 16px;
+        color: white;
+        left: 26px;
+      }
+
+      #a_letter {
+        top: 33px;
+      }
+
+      #b_letter {
+        top: 146px;
+      }
+
+      #map {
+        position: absolute;
+        z-index: -99;
+        top: 154px;
+        width: 100%;
+        height: 100%;
+      }
+
+      .y_button {
+        height: 29px;
+        cursor: pointer;
+        position: absolute;
+        background-color: #D8C51B;
+        border-radius: 3px;
+        border: 0px;
+        box-shadow: 0 6px 6px -2px rgba(0, 0, 0, 0.2); 
+        font-family: "Asap";
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .y_button:active {
+        box-shadow: 0 8px 6px -2px rgba(0, 0, 0, 0.2); 
+        transform: translateY(2px);
+      }
+
+      #go_button {
+        left: 276px;
+        top: 266px;
+        width: 49px;
+      }
+
+      #loc_confirm {
+        bottom: 10px;
+        right: 8px;
+        height: 35px;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-shadow: none;
+      }
+
+      .cancel_button {
+        height: 35px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: #fff;
+        color: #939393;
+        border: 2px solid #939393;
+        box-shadow: none;
+      }
+</style>

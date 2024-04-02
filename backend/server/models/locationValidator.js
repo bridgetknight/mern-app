@@ -6,7 +6,8 @@ const locationValidation = data => {
     streetAddress : z.string().min(3, 'Enter full street address'),
     city: z.string().min(3, 'City must be 3 characters or more'),
     state: z.string().max(2, 'State must be 2 letter abbreviation'),
-    postalCode: z.number()
+    zipCode: z.number(),
+    label: z.string().min(3, 'Label must be 3 characters or more')
   });
   return locationValidationSchema.safeParse(data)
 };

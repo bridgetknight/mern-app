@@ -10,11 +10,6 @@ const registerRoute = require('./routes/userSignUp')
 const getUserByIdRoute = require('./routes/userGetUserById')
 const editUser = require('./routes/userEditUser')
 const deleteUser = require('./routes/userDeleteAll')
-const locGetAll = require('./routes/locationGetAll')
-const locaddLocation = require('./routes/locationAddLocation')
-const getLocation = require('./routes/locationGetlocationById')
-const remLocation = require('./routes/locationDeleteLocationById')
-const updateLocation = require('./routes/locationEditLocationById')
 
 // routes for Route model
 const getAllRoutes = require("./routes/routeGetAll")
@@ -24,7 +19,7 @@ const saveRoute = require("./routes/routeSaveRoute.js")
 const editRoute = require("./routes/routeEditRoute.js")
 
 // routes for Location model
-const saveLocation = require("./routes/locationSaveLocation.js")
+const getAllLocations = require("./routes/locationGetAll.js")
 
 // Middleware
 require('dotenv').config();
@@ -44,11 +39,6 @@ app.use('/user', getAllUsersRoute)
 app.use('/user', getUserByIdRoute)
 app.use('/user', editUser)
 app.use('/user', deleteUser)
-app.use('/location', locGetAll)
-app.use('/location', locaddLocation)
-app.use('/location', getLocation)
-app.use('/location', remLocation)
-app.use('/location', updateLocation)
 
 // Route model
 app.use("/route", getAllRoutes)
@@ -58,7 +48,7 @@ app.use("/route", editRoute)
 app.use("/route", deleteAllRoutes)
 
 // Location model
-app.use("/location", saveLocation)
+app.use('/locations', getAllLocations)
 
 app.listen(SERVER_PORT, (req, res) => {
     console.log(`The backend service is running on port ${SERVER_PORT} and waiting for requests.`);

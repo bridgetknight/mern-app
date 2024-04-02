@@ -24,3 +24,7 @@ Content-Type: application/json
     "zipCode": "ThisWillFail",
     "userId": "65a9605d238e0f4fcf0de0e1"
 }
+
+###
+GET  http://localhost:8081/locations/getAll/65b2a17230573843d897d0a3
+Content-Type: application/json

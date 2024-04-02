@@ -18,9 +18,9 @@ const locationSchema = new mongoose.Schema(
       label: "city",
     },
     zipCode: {
-        type: String,
-        required: true,
-        label: "zipCode"
+      type: Number,
+      required: true,
+      label: "zipCode"
     },
     state: {
         type: String,
@@ -36,4 +36,4 @@ const locationSchema = new mongoose.Schema(
   { collection: "locations" }
 );
 
-module.exports = mongoose.model('Location', locationSchema)
+module.exports = mongoose.model('locations', locationSchema)

@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8081/user/getAll
+GET http://localhost:8081/user/getAll/65b2a17230573843d897d0a3
 Content-Type: application/json
 
 ###

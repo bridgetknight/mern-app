@@ -27,6 +27,9 @@ export default function Navbar() {
           <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
           <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
           <Nav.Link href="/mbtaPredictions">MBTA Routes</Nav.Link>
+          <Nav.Link href="/accountManagementPage">
+            Acount Management Page{" "}
+          </Nav.Link>
           <Nav.Link href="/userLocationsPage">Saved Locations</Nav.Link>
           <a href="/frontPage.html">Map</a>
         </Nav>

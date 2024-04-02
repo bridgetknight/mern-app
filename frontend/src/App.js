@@ -44,7 +44,7 @@ const App = () => {
           />
           <Route
             exact
-            path="/accountPage"
+            path="/accountManagementPage"
             element={<AccountManagementPage />}
           />
           <Route

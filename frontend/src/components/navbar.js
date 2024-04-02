@@ -20,7 +20,6 @@ export default function Navbar() {
   // it seems.
   return (
     <ReactNavbar bg="dark" variant="dark">
-<<<<<<< HEAD
       <Container>
         <Nav className="me-auto">
           <Nav.Link href="/">Start</Nav.Link>
@@ -28,26 +27,10 @@ export default function Navbar() {
           <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
           <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
           <Nav.Link href="/mbtaPredictions">MBTA Routes</Nav.Link>
-          <Nav.Link href="/accountManagementPage">
-            Account Management Page
-          </Nav.Link>
+          <Nav.Link href="/userLocationsPage">Saved Locations</Nav.Link>
+          <a href="/frontPage.html">Map</a>
         </Nav>
       </Container>
     </ReactNavbar>
-=======
-    <Container>
-      <Nav className="me-auto">
-        <Nav.Link href="/">Start</Nav.Link>
-        <Nav.Link href="/home">Home</Nav.Link>
-        <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
-        <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
-        <Nav.Link href="/mbtaPredictions">MBTA Routes</Nav.Link>
-        <Nav.Link href="/userLocationsPage">Saved Locations</Nav.Link>
-        <a href="/frontPage.html">Map</a>
-      </Nav>
-    </Container>
-  </ReactNavbar>
-
->>>>>>> 24a54171629b5eef0d22f2c7905da834a71aa4c6
   );
 }

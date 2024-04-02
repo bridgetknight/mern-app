@@ -15,7 +15,7 @@ const AccountManagement = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Insert submit logic here
+    // Insert submit button
     console.log(userInfo);
   };
 

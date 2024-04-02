@@ -58,7 +58,9 @@ const SavedLocation = ({userId}) => {
               <span role="img" aria-label="location icon">{labelIcons[location.label]}</span> {location.label} {/* Icon before the label */}
               </Card.Title>
               <Card.Text>
-                <strong>Address:</strong> {location.streetAddress}, {location.city}, {location.state} {location.zipCode}
+              <strong><span role="img" aria-label="location pin icon">📍</span> Address:</strong><br />
+              &nbsp;&nbsp;{location.streetAddress}<br />
+              &nbsp;&nbsp;{location.city}, {location.state} {location.zipCode}
               </Card.Text>
             </Card.Body>
           </Card>

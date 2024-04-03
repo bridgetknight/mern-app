@@ -1,20 +1,21 @@
 # Correct POST
+
 ###
-POST http://localhost:8081/location/saveLocation
+POST http://localhost:8081/locations/addLocation
 Content-Type: application/json
 
 {
-    "streetAddress": "2137 Park Drive",
-    "city": "Boston",
-    "state": "Massachusetts",
-    "zipCode": "02108",
     "userId": "65a9605d238e0f4fcf0de0e1",
-    "label": "Park Street"
+    "streetAddress" : "105 Huntington Ave",
+    "city" : "Boston",
+    "state" : "MA",
+    "zipCode" : 21990,
+    "label": "Pressed Cafe"
 }
 
 # Incorrect POST
 ###
-POST http://localhost:8081/location/saveLocation
+POST http://localhost:8081/locations/addLocation
 Content-Type: application/json
 
 {
@@ -26,5 +27,31 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:8081/locations/getAll/65b2a17230573843d897d0a3
+GET  http://localhost:8081/locations/getAll/65a9605d238e0f4fcf0de0e1
 Content-Type: application/json
+
+
+###
+GET  http://localhost:8081/locations/getLocationById/65e9256942a9d721d45e7814
+Content-Type: application/json 
+
+
+###
+PUT  http://localhost:8081/locations/editLocationById/65e9256942a9d721d45e7814
+Content-Type: application/json 
+
+{
+    "streetAddress" : "210 Andover Street",
+    "city" : "Peabody",
+    "state" : "MA",
+    "zipCode" : 19600,
+    "label": "Gym"
+}
+
+
+###
+DELETE   http://localhost:8081/locations/deleteLocationById/65e929cb07e18b3428c2ef26
+Content-Type: application/json 
+
+
+

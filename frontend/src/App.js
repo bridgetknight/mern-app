@@ -13,6 +13,7 @@ import { createContext, useState, useEffect } from "react";
 import getUserInfo from "./utilities/decodeJwt";
 import MbtaAlertsPage from "./components/pages/mbtaAlerts";
 import MbtaPredictionsPage from "./components/pages/mbtaPredictions";
+import AccountManagementPage from "./components/pages/accountManagementPage";
 import SavedLocations from "./components/pages/userLocationsPage";
 
 export const UserContext = createContext();
@@ -36,7 +37,21 @@ const App = () => {
           <Route exact path="/signup" element={<Signup />} />
           <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
           <Route exact path="/mbtaAlerts" element={<MbtaAlertsPage />} />
-          <Route exact path="/mbtaPredictions" element={<MbtaPredictionsPage />} />
+          <Route
+            exact
+            path="/mbtaPredictions"
+            element={<MbtaPredictionsPage />}
+          />
+          <Route
+            exact
+            path="/accountManagementPage"
+            element={<AccountManagementPage />}
+          />
+          <Route
+            exact
+            path="/mbtaPredictions"
+            element={<MbtaPredictionsPage />}
+          />
           <Route exact path="/userLocationsPage" element={<SavedLocations />} />
         </Routes>
       </UserContext.Provider>
@@ -44,6 +59,4 @@ const App = () => {
   );
 };
 
-
-
-export default App
+export default App;

@@ -16,17 +16,18 @@ router.put('/editLocationById/:locId', async (req, res) =>
 
         const location = await locationModel.findById(locId);
     if (!location){
-        return res.status(400).json({message: "Location not found"});
+        return res.status(400).json({message: "The Location is not Found"});
     }
 
     location.streetAddress = req.body.streetAddress;
     location.city = req.body.city;
     location.state = req.body.state;
-    location.postalCode = req.body.postalCode;
+    location.zipCode = req.body.zipCode;
+    location.label = req.body.label;
 
     const updatedLocation = await location.save();
 
-    res.status(200).json({message: "Location updated successfully", location: updatedLocation});
+    res.status(200).json({message: "Successfully Updated Location", location: updatedLocation});
 
     }
 

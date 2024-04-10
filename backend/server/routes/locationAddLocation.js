@@ -1,38 +1,40 @@
 const express = require("express");
 const router = express.Router();
-const z = require('zod')
-const {locationValidation } = require('../models/locationValidator')
 const locationModel = require('../models/locationModel')
 
 router.post('/addLocation', async (req, res) => {
-    const { error } = locationValidation(req.body);
-    console.log(error)
-    if (error) return res.status(400).send({ message: error.errors[0].message });
+  try {
+      // Check if the location already exists for the user
+      const existingLocation = await locationModel.findOne({
+          streetAddress: req.body.streetAddress,
+          zipCode: req.body.zipCode,
+          userId: req.body.userId
+      });
 
-    const { streetAddress, city, state, postalCode } = req.body
+      if (existingLocation) {
+          return res.status(400).json({ error: 'Location Already Exists' });
+      }
 
-    //check if location already exists
-    const location = await locationModel.findOne({ streetAddress: streetAddress })
-    if (location)
-        return res.status(409).send({ message: "Location exists and saved" })
+      // Create a new location document
+      const location = new locationModel({
+          streetAddress: req.body.streetAddress,
+          city: req.body.city,
+          state: req.body.state,
+          zipCode: req.body.zipCode,
+          userId: req.body.userId,
+          label: req.body.label
+      });
 
+      // Save the location to the database
+      await location.save();
 
-    //creates a new location
-    const createLocation = new locationModel({
-        streetAddress: streetAddress,
-        city: city,
-        state: state,
-        postalCode : postalCode,
-    });
-
-   
-    try {
-        const saveNewLocation = await createLocation.save();
-        res.send(saveNewLocation);
-    } catch (error) {
-        res.status(400).send({ message: "Error saving new location" });
-    }
-
-})
+      // Send a success response
+      res.status(201).json({ message: 'Location saved successfully', location });
+  } catch (error) {
+      // Handle errors
+      console.error('Error saving location:', error);
+      res.status(500).json({ error: 'An error occurred while saving the location' });
+  }
+});
 
 module.exports = router;

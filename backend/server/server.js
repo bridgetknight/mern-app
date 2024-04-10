@@ -19,7 +19,11 @@ const saveRoute = require("./routes/routeSaveRoute.js")
 const editRoute = require("./routes/routeEditRoute.js")
 
 // routes for Location model
+const addLocation = require("./routes/locationAddLocation.js")
 const getAllLocations = require("./routes/locationGetAll.js")
+const getLocation = require('./routes/locationGetlocationById.js')
+const remLocation = require('./routes/locationDeleteLocationById.js')
+const updateLocation = require('./routes/locationEditLocationById.js')
 
 // Middleware
 require('dotenv').config();
@@ -48,7 +52,11 @@ app.use("/route", editRoute)
 app.use("/route", deleteAllRoutes)
 
 // Location model
+app.use('/locations', addLocation)
 app.use('/locations', getAllLocations)
+app.use('/locations', getLocation)
+app.use('/locations', remLocation)
+app.use('/locations', updateLocation)
 
 app.listen(SERVER_PORT, (req, res) => {
     console.log(`The backend service is running on port ${SERVER_PORT} and waiting for requests.`);

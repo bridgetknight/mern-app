@@ -5,139 +5,132 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import getUserInfo from "../../utilities/decodeJwt";
 
-const PRIMARY_COLOR = "#cc5c99";
-const SECONDARY_COLOR = '#0c0c1f'
+const PRIMARY_COLOR = "#003DA5";
+const SECONDARY_COLOR = "#FFFFFF";
 const url = "http://localhost:8081/user/login";
 
 const Login = () => {
-  const [user, setUser] = useState(null)
   const [data, setData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
-  const [light, setLight] = useState(false);
+  const [light, setLight] = useState(true);
   const [bgColor, setBgColor] = useState(SECONDARY_COLOR);
-  const [bgText, setBgText] = useState('Light Mode')
+  const [bgText, setBgText] = useState("Dark Mode");
   const navigate = useNavigate();
 
-  let labelStyling = {
-    color: PRIMARY_COLOR,
-    fontWeight: "bold",
-    textDecoration: "none",
-  };
-  let backgroundStyling = { background: bgColor };
-  let buttonStyling = {
-    background: PRIMARY_COLOR,
-    borderStyle: "none",
-    color: bgColor,
-  };
-
-  const handleChange = ({ currentTarget: input }) => {
-    setData({ ...data, [input.name]: input.value });
-  };
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (accessToken) {
+      const userInfo = getUserInfo(accessToken);
+      if (userInfo) {
+        navigate("/home");
+      }
+    }
+  }, [navigate]);
 
   useEffect(() => {
-
-    const obj = getUserInfo(user)
-    setUser(obj)
-
-    if (light) {
-      setBgColor("white");
-      setBgText('Dark mode')
-    } else {
-      setBgColor(SECONDARY_COLOR);
-      setBgText('Light mode')
-    }
+    setBgColor(light ? SECONDARY_COLOR : PRIMARY_COLOR);
+    setBgText(light ? "Dark Mode" : "Light Mode");
   }, [light]);
+
+  const handleChange = ({ target: { name, value } }) => {
+    setData({ ...data, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data: res } = await axios.post(url, data);
-      const { accessToken } = res;
-      //store token in localStorage
-      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("accessToken", res.accessToken);
       navigate("/home");
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
+    } catch (err) {
+      const message = err.response?.data?.message || "An error occurred";
+      setError(message);
     }
   };
 
-  if(user) {
-    navigate('/home')
-    return
-  }
+  let labelStyling = { color: PRIMARY_COLOR, fontWeight: "bold" };
+  let backgroundStyling = {
+    backgroundColor: bgColor,
+    color: light ? "black" : "white",
+  };
+  let buttonStyling = {
+    backgroundColor: PRIMARY_COLOR,
+    border: "none",
+    color: "white",
+  };
 
   return (
-    <>
-      <section className="vh-100">
-        <div className="container-fluid h-custom vh-100">
-          <div
-            className="row d-flex justify-content-center align-items-center h-100 "
-            style={backgroundStyling}>
-            <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label style={labelStyling}>Username</Form.Label>
-                  <Form.Control
-                    type="username"
-                    name="username"
-                    onChange={handleChange}
-                    placeholder="Enter username"
-                  />
-                  <Form.Text className="text-muted">
-                    We just might sell your data
-                  </Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label style={labelStyling}>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Text className="text-muted pt-1">
-                    Dont have an account?
-                    <span>
-                      <Link to="/signup" style={labelStyling}> Sign up
-                      </Link>
-                    </span>
-                  </Form.Text>
-                </Form.Group>
-                <div class="form-check form-switch">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="flexSwitchCheckDefault"
-                    onChange={() => { setLight(!light) }}
-                  />
-                  <label class="form-check-label" for="flexSwitchCheckDefault" className='text-muted'>
-                    {bgText}
-                  </label>
-                </div>
-                {error && <div style={labelStyling} className='pt-3'>{error}</div>}
-                <Button
-                  variant="primary"
-                  type="submit"
-                  onClick={handleSubmit}
-                  style={buttonStyling}
-                  className='mt-2'
+    <section className="vh-100" style={backgroundStyling}>
+      <div className="container-fluid h-custom">
+        <div className="row d-flex justify-content-center align-items-center h-100">
+          <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="username">
+                <Form.Label style={labelStyling}>Username</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="username"
+                  value={data.username}
+                  onChange={handleChange}
+                  placeholder="Enter username"
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="password">
+                <Form.Label style={labelStyling}>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  value={data.password}
+                  onChange={handleChange}
+                  placeholder="Password"
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Text className="text-muted">
+                  Don't have an account?
+                  <Link to="/signup" style={labelStyling}>
+                    {" "}
+                    Sign up
+                  </Link>
+                </Form.Text>
+              </Form.Group>
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="flexSwitchCheckDefault"
+                  onChange={() => setLight(!light)}
+                />
+                <label
+                  className="form-check-label text-muted"
+                  htmlFor="flexSwitchCheckDefault"
                 >
-                  Log In
-                </Button>
-              </Form>
-            </div>
+                  {bgText}
+                </label>
+              </div>
+              {error && (
+                <div
+                  style={{ ...labelStyling, backgroundColor: "none" }}
+                  className="pt-3"
+                >
+                  {error}
+                </div>
+              )}
+              <Button
+                variant="primary"
+                type="submit"
+                style={buttonStyling}
+                className="mt-2"
+              >
+                Log In
+              </Button>
+            </Form>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

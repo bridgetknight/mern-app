@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const locationModel = require("../models/locationModel");
+const locationModel = require('../models/locationModel');
 
 router.get("/getLocationById/:locId", async (req, res) => {
 

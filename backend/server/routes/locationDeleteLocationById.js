@@ -18,7 +18,7 @@ router.delete('/deleteLocationById/:locId', async (req, res) => {
     // Delete the location
     await locationModel.deleteOne({ _id: locId });
 
-    return res.status(200).json({ message: "Location deleted successfully", deleteLocation });
+    return res.status(200).json({ message: "Successfully Deleted Location", deleteLocation });
 } 
 catch (error) {
     console.error("Error deleting location:", error);

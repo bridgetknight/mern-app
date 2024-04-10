@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import getUserInfo from "../utilities/decodeJwt";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import ReactNavbar from "react-bootstrap/Navbar";
+import { Container, Nav, Navbar as BootstrapNavbar } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
+import styles from "../Navbar.module.css";
+import SubHeader from "../components/subheader"
 
 // Here, we display our Navbar
 export default function Navbar() {
@@ -10,30 +11,49 @@ export default function Navbar() {
   // Warning disabled:
   // eslint-disable-next-line
   const [user, setUser] = useState({});
+  const location = useLocation();
 
   useEffect(() => {
     setUser(getUserInfo());
   }, []);
 
+  function renderSubHeader() {
+    const path = location.pathname;
+    switch (path) {
+      case "/":
+        return <SubHeader pageTitle="Route Planner" />;
+      case "/home":
+        return <SubHeader pageTitle="Route History" />;
+      case "/userLocationsPage":
+        return <SubHeader pageTitle="Help" />;
+      case "/accountManagementPage":
+        return <SubHeader pageTitle="Profile" />;
+      default:
+        return null;
+    }
+  }
+
   // if (!user) return null   - for now, let's show the bar even not logged in.
   // we have an issue with getUserInfo() returning null after a few minutes
   // it seems.
   return (
-    <ReactNavbar bg="dark" variant="dark">
-      <Container>
-        <Nav className="me-auto">
-          <Nav.Link href="/">Start</Nav.Link>
-          <Nav.Link href="/home">Home</Nav.Link>
-          <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
-          <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
-          <Nav.Link href="/mbtaPredictions">MBTA Routes</Nav.Link>
-          <Nav.Link href="/accountManagementPage">
-            Acount Management Page{" "}
-          </Nav.Link>
-          <Nav.Link href="/userLocationsPage">Saved Locations</Nav.Link>
-          <a href="/frontPage.html">Map</a>
-        </Nav>
-      </Container>
-    </ReactNavbar>
-  );
+    <>
+      <BootstrapNavbar className={`${styles.header} ${styles.main_header}`}>
+        <Container style={{ display: "flex", justifyContent: "space-between" }}>
+          <BootstrapNavbar.Brand href="/" className={styles.title}>
+            MBTA Trip Assistant
+          </BootstrapNavbar.Brand>
+          <Nav className="me-auto" style={{ marginLeft: -480, flex: 1 }}>
+            <Nav.Link href="/" className={styles.navLink}>Route Planner</Nav.Link>
+            <Nav.Link href="/history" className={styles.navLink}>Route History</Nav.Link>
+            <Nav.Link href="/userLocationsPage" className={styles.navLink}>Help</Nav.Link>
+          </Nav>
+          <Nav className="ml-auto" style={{ marginRight: "-700px"}}>
+            <Nav.Link href="/accountManagementPage" className={styles.navLink}>Profile</Nav.Link>
+          </Nav>
+        </Container>
+      </BootstrapNavbar>
+      {renderSubHeader()}
+    </>
+  )
 }

@@ -7,7 +7,7 @@ const Landingpage = () => {
     return (
       <>
         <Sidebar/>
-        {/*<RadarMap/>*/}
+        <RadarMap/>
       </>
 
     )

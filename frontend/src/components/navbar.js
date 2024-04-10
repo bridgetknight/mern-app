@@ -43,12 +43,12 @@ export default function Navbar() {
           <BootstrapNavbar.Brand href="/" className={styles.title}>
             MBTA Trip Assistant
           </BootstrapNavbar.Brand>
-          <Nav className="me-auto" style={{ marginLeft: -480, flex: 1 }}>
+          <Nav style={{ flex: 1 }}>
             <Nav.Link href="/" className={styles.navLink}>Route Planner</Nav.Link>
             <Nav.Link href="/history" className={styles.navLink}>Route History</Nav.Link>
             <Nav.Link href="/userLocationsPage" className={styles.navLink}>Help</Nav.Link>
           </Nav>
-          <Nav className="ml-auto" style={{ marginRight: "-700px"}}>
+          <Nav style={{ position: "absolute", right: "30px" }}>
             <Nav.Link href="/accountManagementPage" className={styles.navLink}>Profile</Nav.Link>
           </Nav>
         </Container>

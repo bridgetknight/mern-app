@@ -53,7 +53,7 @@ const AccountManagement = () => {
     <>
       <style>{/* Styles moved inside for brevity */}</style>
       <div className="account-management">
-        <div className="content">
+        <div className="content" style={{ position: "absolute", top: "180px" }}> 
           <form className="user-info" onSubmit={handleSubmit}>
             {renderInputField("First Name", "firstName")}
             {renderInputField("Last Name", "lastName")}

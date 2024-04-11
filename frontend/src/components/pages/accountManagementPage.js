@@ -4,10 +4,10 @@ import axios from "axios";
 const AccountManagement = () => {
   const [userInfo, setUserInfo] = useState({
     userId: "YOUR_USER_ID",
-    firstName: "John",
-    lastName: "Doe",
-    email: "johndoe@example.com",
-    username: "johndoe",
+    firstName: " ",
+    lastName: " ",
+    email: " ",
+    username: " ",
   });
   const [editMode, setEditMode] = useState(false);
 

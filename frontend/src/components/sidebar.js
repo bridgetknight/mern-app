@@ -79,12 +79,16 @@ const Sidebar = () => {
             verifyAddress(selectedAddress);
         })
 
+        // When a save button is clicked, show popup and attach confirmation listener
+        // if address is provided
         function verifyAddress(address) {
             if(address) {
                 setPopupShow(true);
                 attachConfirmation();
             }
         }
+
+        // Attach listener to confirmation button when it's visible in the modal
         function attachConfirmation() {
             console.log("Confirmation attached.");
             const locConfirm = document.getElementById("locConfirm");
@@ -108,7 +112,8 @@ const Sidebar = () => {
             const labelInputBox = document.getElementById("label_input");
             const labelInput = labelInputBox.value;
 
-            console.log(labelInput);
+            console.log(`Label: ${labelInput}`);
+
             if(!labelInput) {
                 alert("Invalid location!");
             } else {
@@ -117,7 +122,7 @@ const Sidebar = () => {
                 // Get user information
                 const { userId, email, username, password } = user
 
-                // address parts
+                // Split Radar address into parts
                 const streetAddress = address.addressLabel;
                 const city = address.city;
                 const postalCode = address.postalCode;
@@ -134,10 +139,12 @@ const Sidebar = () => {
                     userId: userId,
                     label: label
                 };
+
                 saveLocation(data);
             }
         }
 
+        // Function to send a POST request to MongoDB for saving a location
         async function saveLocation(data) {
             try {
                 const response = await fetch(`${url}/location/addLocation`, {
@@ -192,7 +199,6 @@ const Sidebar = () => {
                     </Modal.Body>
                 </Modal>
 
-
                 <div className="dots">
                     <div className="dot"></div>
                     <div className="dot"></div>
@@ -211,7 +217,6 @@ const Sidebar = () => {
             </div>
         </>
     )
-
 }
 
 export default Sidebar;

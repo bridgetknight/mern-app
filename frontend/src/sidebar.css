@@ -1,19 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Asap:ital,wght@0,100..900;1,100..900&display=swap");
 
-#label_input {
-    position: absolute;
-    top: 56px;
-    left: 40px;
-    padding: 2px;
-    height: 25px;
-    width: 260px;
-    border: 0;
-    border-bottom: 2px solid grey;
-    outline: 0;
-    font-family: Asap;
-    font-size: 16px;
-}
-
 #label_input:placeholder {
     font-size: 16px;
     font-family: Asap;
@@ -193,14 +179,7 @@ a {
     width: 49px;
 }
 
-#loc_confirm {
-    bottom: 10px;
-    right: 8px;
-    height: 35px;
-    padding-left: 10px;
-    padding-right: 10px;
-    box-shadow: none;
-}
+
 
 .cancel_button {
     height: 35px;

@@ -22,7 +22,7 @@ const Login = () => {
     if (accessToken) {
       const userInfo = getUserInfo(accessToken);
       if (userInfo) {
-        navigate("/home");
+        navigate("/");
       }
     }
   }, [navigate]);
@@ -41,7 +41,7 @@ const Login = () => {
     try {
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("accessToken", res.accessToken);
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       const message = err.response?.data?.message || "An error occurred";
       setError(message);

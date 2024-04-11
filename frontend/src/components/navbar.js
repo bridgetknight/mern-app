@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import getUserInfo from "../utilities/decodeJwt";
 import { Container, Nav, Navbar as BootstrapNavbar } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 import styles from "../Navbar.module.css";
 import SubHeader from "../components/subheader"
 
@@ -12,6 +13,7 @@ export default function Navbar() {
   // eslint-disable-next-line
   const [user, setUser] = useState({});
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setUser(getUserInfo());
@@ -33,6 +35,12 @@ export default function Navbar() {
     }
   }
 
+    // handle logout button
+    const handleLogout = (async) => {
+      localStorage.clear();
+      navigate("/");
+    };
+
   // if (!user) return null   - for now, let's show the bar even not logged in.
   // we have an issue with getUserInfo() returning null after a few minutes
   // it seems.
@@ -43,13 +51,24 @@ export default function Navbar() {
           <BootstrapNavbar.Brand href="/" className={styles.title}>
             MBTA Trip Assistant
           </BootstrapNavbar.Brand>
-          <Nav style={{ flex: 1 }}>
+          <Nav style={{ position: "absolute", left: "200px", flex: 1 }}>
             <Nav.Link href="/" className={styles.navLink}>Route Planner</Nav.Link>
             <Nav.Link href="/history" className={styles.navLink}>Route History</Nav.Link>
-            <Nav.Link href="/userLocationsPage" className={styles.navLink}>Help</Nav.Link>
+            <Nav.Link href="/userLocationsPage" className={styles.navLink}>Saved Locations</Nav.Link>
           </Nav>
-          <Nav style={{ position: "absolute", right: "30px" }}>
-            <Nav.Link href="/accountManagementPage" className={styles.navLink}>Profile</Nav.Link>
+          <Nav style={{ position: "absolute", right: "10px" }}>
+          {user && (
+            <>
+              <Nav.Link href="/accountManagementPage" className={styles.navLink}>Profile</Nav.Link>
+              <Nav.Link href="/" className={styles.navLink} onClick={handleLogout}>Log Out</Nav.Link>
+            </>
+            )}
+            {!user && (
+              <>
+                <Nav.Link href="/login" className={styles.navLink}>Log In</Nav.Link>
+                <Nav.Link href="/signup" className={styles.navLink}>Register</Nav.Link>
+              </>
+            )}
           </Nav>
         </Container>
       </BootstrapNavbar>

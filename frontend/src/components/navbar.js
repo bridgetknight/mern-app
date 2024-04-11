@@ -51,12 +51,12 @@ export default function Navbar() {
           <BootstrapNavbar.Brand href="/" className={styles.title}>
             MBTA Trip Assistant
           </BootstrapNavbar.Brand>
-          <Nav style={{ flex: 1 }}>
+          <Nav style={{ position: "absolute", left: "200px", flex: 1 }}>
             <Nav.Link href="/" className={styles.navLink}>Route Planner</Nav.Link>
             <Nav.Link href="/history" className={styles.navLink}>Route History</Nav.Link>
             <Nav.Link href="/userLocationsPage" className={styles.navLink}>Saved Locations</Nav.Link>
           </Nav>
-          <Nav style={{ position: "absolute", right: "60px" }}>
+          <Nav style={{ position: "absolute", right: "10px" }}>
           {user && (
             <>
               <Nav.Link href="/accountManagementPage" className={styles.navLink}>Profile</Nav.Link>

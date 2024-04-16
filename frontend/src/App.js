@@ -15,6 +15,8 @@ import MbtaAlertsPage from "./components/pages/mbtaAlerts";
 import MbtaPredictionsPage from "./components/pages/mbtaPredictions";
 import AccountManagementPage from "./components/pages/accountManagementPage";
 import SavedLocations from "./components/pages/userLocationsPage";
+import LocationDetails from "./components/pages/locationDetailsPage";
+
 
 export const UserContext = createContext();
 //test change
@@ -53,6 +55,7 @@ const App = () => {
             element={<MbtaPredictionsPage />}
           />
           <Route exact path="/userLocationsPage" element={<SavedLocations />} />
+          <Route path="/locationDetailsPage/:locationId" element={<LocationDetails />} />
         </Routes>
       </UserContext.Provider>
     </>

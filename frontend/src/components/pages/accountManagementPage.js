@@ -20,7 +20,7 @@ const AccountManagement = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8081/editUser",
+        `${process.env.REACT_APP_BACKEND_SERVER_URI}/editUser`,
         userInfo
       );
       console.log(response.data);

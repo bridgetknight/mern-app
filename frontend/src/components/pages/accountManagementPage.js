@@ -1,145 +1,87 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const AccountManagement = () => {
   const [userInfo, setUserInfo] = useState({
-    firstName: "Sandy",
-    lastName: "Saint Fort",
-    email: "sandysaintfort@gmail.com",
-    username: "Ssaintfort",
+    userId: "YOUR_USER_ID",
+    firstName: " ",
+    lastName: " ",
+    email: " ",
+    username: " ",
   });
+  const [editMode, setEditMode] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Insert submit button
-    console.log(userInfo);
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_SERVER_URI}/editUser`,
+        userInfo
+      );
+      console.log(response.data);
+      setEditMode(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const renderInputField = (label, name, type = "text") => {
+    return (
+      <div className="form-group">
+        <label>{label}</label>
+        {editMode ? (
+          <input
+            type={type}
+            name={name}
+            value={userInfo[name]}
+            onChange={handleInputChange}
+            className="form-control"
+          />
+        ) : (
+          <p className="form-control-static">{userInfo[name]}</p>
+        )}
+      </div>
+    );
   };
 
   return (
     <>
-      <style>
-        {`
-          .account-management {
-            display: flex;
-            background-color: #f2f2f2;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-          }
-          
-          .sidebar {
-            background-color: #003DA5;
-            color: white;
-            padding: 20px;
-            width: 250px;
-          }
-          
-          .menu-item {
-            margin-bottom: 10px;
-            cursor: pointer;
-            padding: 10px;
-          }
-          
-          .menu-item.active {
-            font-weight: bold;
-            color: #FFC72C;
-          }
-          
-          .content {
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-          }
-          
-          .user-info {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: auto;
-          }
-          
-          .form-group {
-            margin-bottom: 15px;
-          }
-          
-          .form-group label {
-            display: block;
-            color: #333;
-            margin-bottom: 5px;
-          }
-          
-          .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-          }
-          
-          .save-changes {
-            background-color: #003DA5;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            margin-top: 15px;
-          }
-        `}
-      </style>
+      <style>{/* Styles moved inside for brevity */}</style>
       <div className="account-management">
-        <div className="sidebar">
-          <div className="menu-item">Route History</div>
-          <div className="menu-item active">Account Settings</div>
-          <div className="menu-item">Help</div>
-        </div>
-        <div className="content">
+        <div className="content" style={{ position: "absolute", top: "180px" }}> 
           <form className="user-info" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>First Name</label>
-              <input
-                type="text"
-                name="firstName"
-                value={userInfo.firstName}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Last Name</label>
-              <input
-                type="text"
-                name="lastName"
-                value={userInfo.lastName}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                value={userInfo.email}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div className="form-group">
-              <label>Username</label>
-              <input
-                type="text"
-                name="username"
-                value={userInfo.username}
-                onChange={handleInputChange}
-              />
-            </div>
-            <button type="submit" className="save-changes">
-              Save Changes
-            </button>
+            {renderInputField("First Name", "firstName")}
+            {renderInputField("Last Name", "lastName")}
+            {renderInputField("Email", "email", "email")}
+            {renderInputField("Username", "username")}
+            {editMode && (
+              <>
+                <button type="submit" className="save-changes">
+                  Save Changes
+                </button>
+                <button
+                  type="button"
+                  className="cancel-changes"
+                  onClick={() => setEditMode(false)}
+                >
+                  Cancel
+                </button>
+              </>
+            )}
+            {!editMode && (
+              <button
+                type="button"
+                className="edit-profile"
+                onClick={() => setEditMode(true)}
+              >
+                Edit Profile
+              </button>
+            )}
           </form>
         </div>
       </div>

@@ -24,6 +24,7 @@
     "i": "^0.3.7",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^6.6.5",
+    "react-native-radar": "^3.10.8",
     "zod": "^3.19.1"
   },
   "devDependencies": {

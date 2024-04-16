@@ -53,13 +53,12 @@
     left: 0px;
     box-shadow: 0 0 10px #727272;
     z-index: 2;
+    text-align: center;
 }
 
 .subtitle {
     color: #000 !important;
-    position: absolute;
     font-weight: 600;
     padding-left: 0;
-    left: calc(0.5 * 1920px);
     padding-top: 26px;
 }

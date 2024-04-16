@@ -20,7 +20,7 @@ const AccountManagement = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8081/editUser",
+        `${process.env.REACT_APP_BACKEND_SERVER_URI}/editUser`,
         userInfo
       );
       console.log(response.data);
@@ -53,7 +53,7 @@ const AccountManagement = () => {
     <>
       <style>{/* Styles moved inside for brevity */}</style>
       <div className="account-management">
-        <div className="content">
+        <div className="content" style={{ position: "absolute", top: "180px" }}> 
           <form className="user-info" onSubmit={handleSubmit}>
             {renderInputField("First Name", "firstName")}
             {renderInputField("Last Name", "lastName")}

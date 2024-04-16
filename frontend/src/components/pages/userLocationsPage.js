@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 
 const ParentComponent = () => {
-
+    const url = `${process.env.REACT_APP_BACKEND_SERVER_URI}/userLocationsPage`;
     const userId = '65b2a17230573843d897d0a3';
 
     return(
@@ -19,7 +19,7 @@ const SavedLocation = ({userId}) => {
     useEffect(() => {
       const fetchLocations = async () => {
         try {
-          const response = await axios.get(`http://localhost:8081/locations/getAll/${userId}`);
+          const response = await axios.get(`${process.env.REACT_APP_BACKEND_SERVER_URI}/locations/getAll/${userId}`);
           setLocations(response.data);
         } catch (error) {
           console.error('Error fetching locations:', error);

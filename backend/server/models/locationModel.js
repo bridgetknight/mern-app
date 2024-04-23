@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 // location schema/model
 const locationSchema = new mongoose.Schema(
   {
-    userId: { 
-        type: mongoose.Schema.Types.ObjectId, 
+    username: { 
+        type: String, 
         ref: "Users" 
     },
     streetAddress: {

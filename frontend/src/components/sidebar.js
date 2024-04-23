@@ -8,7 +8,7 @@ import getUserInfo from "../utilities/decodeJwt";
 
 // Radar public key
 Radar.initialize("prj_live_pk_b4d3412f3d0dd3a0954d78d19f342d06f0bbddff");
-const url = "localhost:8096/";
+
 const Sidebar = () => {
     let addressA = null;
     let addressB = null;
@@ -128,7 +128,7 @@ const Sidebar = () => {
                 const postalCode = address.postalCode;
                 const state = address.state;
                 const label = labelInput;
-                console.log(`userId: ${userId}`);
+                console.log(`username: ${username}`);
 
                 // Prepare the data payload for the POST request
                 const data = {
@@ -136,10 +136,12 @@ const Sidebar = () => {
                     city: city,
                     state: state,
                     zipCode: postalCode,
-                    userId: userId,
+                    username: username,
                     label: label
                 };
-
+                
+                console.log(data);
+                console.log(JSON.stringify(data));
                 saveLocation(data);
             }
         }
@@ -147,13 +149,15 @@ const Sidebar = () => {
         // Function to send a POST request to MongoDB for saving a location
         async function saveLocation(data) {
             try {
-                const response = await fetch(`${url}/location/addLocation`, {
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_SERVER_URI}/locations/addLocation`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify(data)
                 });
+
+                console.log(JSON.stringify(data));
 
                 // Check if the request was successful
                 if(response.ok) {

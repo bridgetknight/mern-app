@@ -26,18 +26,18 @@ const SavedLocation = ({ userId }) => {
     const sortedLocations = [...locations].sort((a, b) => a.label.localeCompare(b.label));
 
     const labelIcons = {
-        'Home': '🏠',
-        'Work': '🏢',
-        'Park': '🌳',
-        'School': '🎓',
-        'Gelato': '🍨',
-        'Brunch': '🥞',
-        'Hair Salon': '💇🏾‍♀️',
-        'Yoga Studio': '🧘🏾‍♀️'
+        'home': '🏠',
+        'work': '🏢',
+        'park': '🌳',
+        'school': '🎓',
+        'gelato': '🍨',
+        'brunch': '🥞',
+        'hair salon': '💇🏾‍♀️',
+        'yoga studio': '🧘🏾‍♀️'
     };
 
     return (
-        <div>
+        <div style={{ position:"absolute", top: "160px" }}>
             {sortedLocations.map(location => (
                 <Card
                     key={location._id}
@@ -50,9 +50,9 @@ const SavedLocation = ({ userId }) => {
                 >
                     <Card.Body>
                         <Card.Title>
-                            <span role="img" aria-label="location icon">{labelIcons[location.label]}</span> {location.label}
+                            <span role="img" aria-label="location icon">{labelIcons[(location.label).toLowerCase()]}</span> {location.label}
                         </Card.Title>
-                        <Card.Text>
+                        <Card.Text style={{width: "1480px"}}>
                             <strong><span role="img" aria-label="location pin icon">📍 </span></strong>
                             {location.streetAddress} . {location.city}
                         </Card.Text>

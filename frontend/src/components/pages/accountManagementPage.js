@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import getUserInfo from "../../utilities/decodeJwt";
+import getUserInfo from "../../utilities/decodeJwt"; // Ensure this utility function is correctly implemented
 
 const AccountManagement = () => {
   const [userInfo, setUserInfo] = useState({
-    userId: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -12,68 +11,95 @@ const AccountManagement = () => {
   });
 
   useEffect(() => {
-    // This effect will run once, after the initial render
-    const fetchData = async () => {
-      try {
-        // Decode the JWT to get the user's information
-        const userData = getUserInfo(localStorage.getItem("accessToken"));
-        const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_SERVER_URI}/user/${userData.id}`
-        );
-        // Assuming the response will have the user information in the body
-        setUserInfo({
-          userId: userData.id,
-          firstName: response.data.firstName,
-          lastName: response.data.lastName,
-          email: response.data.email,
-          username: response.data.username,
-        });
-      } catch (error) {
-        console.error("Error fetching user data:", error);
+    const fetchUserInfo = async () => {
+      // Retrieve the user's ID from the JWT stored in localStorage
+      const userData = getUserInfo(localStorage.getItem("accessToken"));
+      if (userData && userData.id) {
+        try {
+          // Fetch user's profile data from the backend
+          const response = await axios.get(
+            `${process.env.REACT_APP_BACKEND_SERVER_URI}/user/profile/${userData.id}`
+          );
+          setUserInfo(response.data); // Update the userInfo state with the fetched data
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
       }
     };
-    fetchData();
+
+    fetchUserInfo();
   }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserInfo((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_BACKEND_SERVER_URI}/editUser`,
-        userInfo
-      );
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
+    const userData = getUserInfo(localStorage.getItem("accessToken"));
+    if (userData && userData.id) {
+      try {
+        // Submit the updated profile data to the backend
+        const response = await axios.put(
+          `${process.env.REACT_APP_BACKEND_SERVER_URI}/user/profile/${userData.id}`,
+          userInfo
+        );
+        console.log("Profile updated successfully", response.data);
+        // Handle success (e.g., show a success message)
+      } catch (error) {
+        console.error("Error updating profile", error);
+        // Handle error (e.g., show an error message)
+      }
     }
-  };
-
-  // Render a read-only field
-  const renderReadOnlyField = (label, value) => {
-    return (
-      <div className="form-group">
-        <label>{label}</label>
-        <input type="text" className="form-control" value={value} readOnly />
-      </div>
-    );
   };
 
   return (
     <div
       className="account-management"
-      style={{
-        position: "absolute",
-        padding: "20px",
-        backgroundColor: "#ADD8E6",
-        top: "150px",
-      }}
+      style={{ padding: "20px", backgroundColor: "#ADD8E6" }}
     >
-      <div className="user-info">
-        {renderReadOnlyField("First Name", userInfo.firstName)}
-        {renderReadOnlyField("Last Name", userInfo.lastName)}
-        {renderReadOnlyField("Email", userInfo.email)}
-        {renderReadOnlyField("Username", userInfo.username)}
-      </div>
+      <form className="user-info" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            value={userInfo.firstName}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label>Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            value={userInfo.lastName}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={userInfo.email}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            value={userInfo.username}
+            onChange={handleInputChange}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Save Changes
+        </button>
+      </form>
     </div>
   );
 };

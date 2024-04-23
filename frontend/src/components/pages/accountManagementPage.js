@@ -32,9 +32,21 @@ const AccountManagement = () => {
         console.error("Error fetching user data:", error);
       }
     };
-
     fetchData();
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_SERVER_URI}/editUser`,
+        userInfo
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   // Render a read-only field
   const renderReadOnlyField = (label, value) => {
@@ -49,7 +61,12 @@ const AccountManagement = () => {
   return (
     <div
       className="account-management"
-      style={{ padding: "20px", backgroundColor: "#ADD8E6" }}
+      style={{
+        position: "absolute",
+        padding: "20px",
+        backgroundColor: "#ADD8E6",
+        top: "150px",
+      }}
     >
       <div className="user-info">
         {renderReadOnlyField("First Name", userInfo.firstName)}

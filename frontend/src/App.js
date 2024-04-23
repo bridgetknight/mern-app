@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, createContext } from "react";
 // We use Route in order to define the different routes of our application
 import { Route, Routes } from "react-router-dom";
 
@@ -12,7 +12,9 @@ import PrivateUserProfile from "./components/pages/privateUserProfilePage";
 import getUserInfo from "./utilities/decodeJwt";
 import AccountManagementPage from "./components/pages/accountManagementPage";
 import SavedLocations from "./components/pages/userLocationsPage";
-import { createContext, useState, useEffect } from "react";
+import LocationDetails from "./components/pages/locationDetailsPage";
+
+
 export const UserContext = createContext();
 
 //test change
@@ -36,6 +38,7 @@ const App = () => {
           <Route path="/userInfo" element={<HomePage />} />
           <Route exact path="/accountManagementPage" element={<AccountManagementPage />} />
           <Route exact path="/userLocationsPage" element={<SavedLocations />} />
+          <Route path="/locationDetailsPage/:locationId" element={<LocationDetails />} />
         </Routes>
       </UserContext.Provider>
     </>

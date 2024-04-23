@@ -8,7 +8,7 @@ router.post('/addLocation', async (req, res) => {
       const existingLocation = await locationModel.findOne({
           streetAddress: req.body.streetAddress,
           zipCode: req.body.zipCode,
-          userId: req.body.userId
+          username: req.body.username
       });
 
       if (existingLocation) {
@@ -21,7 +21,7 @@ router.post('/addLocation', async (req, res) => {
           city: req.body.city,
           state: req.body.state,
           zipCode: req.body.zipCode,
-          userId: req.body.userId,
+          username: req.body.username,
           label: req.body.label
       });
 

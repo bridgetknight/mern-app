@@ -24,10 +24,8 @@ export default function Navbar() {
     switch (path) {
       case "/":
         return <SubHeader pageTitle="Route Planner" />;
-      case "/home":
-        return <SubHeader pageTitle="Route History" />;
       case "/userLocationsPage":
-        return <SubHeader pageTitle="Help" />;
+        return <SubHeader pageTitle="My Locations" />;
       case "/accountManagementPage":
         return <SubHeader pageTitle="Profile" />;
       default:
@@ -53,7 +51,6 @@ export default function Navbar() {
           </BootstrapNavbar.Brand>
           <Nav style={{ position: "absolute", left: "200px", flex: 1 }}>
             <Nav.Link href="/" className={styles.navLink}>Route Planner</Nav.Link>
-            <Nav.Link href="/history" className={styles.navLink}>Route History</Nav.Link>
             <Nav.Link href="/userLocationsPage" className={styles.navLink}>Saved Locations</Nav.Link>
           </Nav>
           <Nav style={{ position: "absolute", right: "10px" }}>

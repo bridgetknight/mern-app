@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "react": "^18.2.0"
+    "maplibre-gl": "^3.6.2",
+    "radar-sdk-js": "^4.1.18",
+    "react": "^18.2.0",
+    "react-native-radar": "^3.10.8"
   }
 }

@@ -4,17 +4,15 @@ import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import getUserInfo from "../../utilities/decodeJwt";
 
-
 //link to service
 //http://localhost:8096/privateUserProfile
 
 const PrivateUserProfile = () => {
   const [show, setShow] = useState(false);
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const navigate = useNavigate();
-
 
   // handle logout button
   const handleLogout = (async) => {
@@ -23,13 +21,17 @@ const PrivateUserProfile = () => {
   };
 
   useEffect(() => {
-    setUser(getUserInfo())
+    setUser(getUserInfo());
   }, []);
-
 
   // 	<span><b>{<FollowerCount username = {username}/>}</b></span>&nbsp;
   // <span><b>{<FollowingCount username = {username}/>}</b></span>;
-  if (!user) return (<div><h4>Log in to view this page.</h4></div>)
+  if (!user)
+    return (
+      <div>
+        <h4>Log in to view this page.</h4>
+      </div>
+    );
   return (
     <div class="container">
       <div class="col-md-12 text-center">

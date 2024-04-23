@@ -1,91 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import getUserInfo from "../../utilities/decodeJwt";
 
 const AccountManagement = () => {
   const [userInfo, setUserInfo] = useState({
-    userId: "YOUR_USER_ID",
-    firstName: " ",
-    lastName: " ",
-    email: " ",
-    username: " ",
+    userId: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    username: "",
   });
-  const [editMode, setEditMode] = useState(false);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserInfo({ ...userInfo, [name]: value });
-  };
+  useEffect(() => {
+    // This effect will run once, after the initial render
+    const fetchData = async () => {
+      try {
+        // Decode the JWT to get the user's information
+        const userData = getUserInfo(localStorage.getItem("accessToken"));
+        const response = await axios.get(
+          `${process.env.REACT_APP_BACKEND_SERVER_URI}/user/${userData.id}`
+        );
+        // Assuming the response will have the user information in the body
+        setUserInfo({
+          userId: userData.id,
+          firstName: response.data.firstName,
+          lastName: response.data.lastName,
+          email: response.data.email,
+          username: response.data.username,
+        });
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:8081/editUser",
-        userInfo
-      );
-      console.log(response.data);
-      setEditMode(false);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    fetchData();
+  }, []);
 
-  const renderInputField = (label, name, type = "text") => {
+  // Render a read-only field
+  const renderReadOnlyField = (label, value) => {
     return (
       <div className="form-group">
         <label>{label}</label>
-        {editMode ? (
-          <input
-            type={type}
-            name={name}
-            value={userInfo[name]}
-            onChange={handleInputChange}
-            className="form-control"
-          />
-        ) : (
-          <p className="form-control-static">{userInfo[name]}</p>
-        )}
+        <input type="text" className="form-control" value={value} readOnly />
       </div>
     );
   };
 
   return (
-    <>
-      <style>{/* Styles moved inside for brevity */}</style>
-      <div className="account-management">
-        <div className="content">
-          <form className="user-info" onSubmit={handleSubmit}>
-            {renderInputField("First Name", "firstName")}
-            {renderInputField("Last Name", "lastName")}
-            {renderInputField("Email", "email", "email")}
-            {renderInputField("Username", "username")}
-            {editMode && (
-              <>
-                <button type="submit" className="save-changes">
-                  Save Changes
-                </button>
-                <button
-                  type="button"
-                  className="cancel-changes"
-                  onClick={() => setEditMode(false)}
-                >
-                  Cancel
-                </button>
-              </>
-            )}
-            {!editMode && (
-              <button
-                type="button"
-                className="edit-profile"
-                onClick={() => setEditMode(true)}
-              >
-                Edit Profile
-              </button>
-            )}
-          </form>
-        </div>
+    <div
+      className="account-management"
+      style={{ padding: "20px", backgroundColor: "#ADD8E6" }}
+    >
+      <div className="user-info">
+        {renderReadOnlyField("First Name", userInfo.firstName)}
+        {renderReadOnlyField("Last Name", userInfo.lastName)}
+        {renderReadOnlyField("Email", userInfo.email)}
+        {renderReadOnlyField("Username", userInfo.username)}
       </div>
-    </>
+    </div>
   );
 };
 

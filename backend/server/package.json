@@ -23,8 +23,11 @@
     "express": "^4.19.2",
     "i": "^0.3.7",
     "jsonwebtoken": "^9.0.2",
+    "maplibre-gl": "^3.6.2",
     "mongoose": "^6.6.5",
+    "radar-sdk-js": "^4.1.18",
     "react-native-radar": "^3.10.8",
+    "stream-http": "^3.2.0",
     "zod": "^3.19.1"
   },
   "devDependencies": {

@@ -61,6 +61,19 @@ const Login = () => {
 
   return (
     <section className="vh-100" style={backgroundStyling}>
+      <style>{`
+        .vh-100 {
+          height: 100vh;
+        }
+        .h-custom {
+          height: calc(100% - 56px);
+        }
+        .form-check-input:checked {
+          background-color: ${PRIMARY_COLOR};
+        }
+        
+        @import url("https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Asap:ital,wght@0,100..900;1,100..900&display=swap");
+      `}</style>
       <div className="container-fluid h-custom">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">

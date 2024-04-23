@@ -48,7 +48,9 @@ const Register = () => {
                 </div>
               )}
               <Form.Group className="mb-3">
-                <Form.Label>Username</Form.Label>
+                <Form.Label style={{ color: PRIMARY_COLOR }}>
+                  Username
+                </Form.Label>
                 <Form.Control
                   type="text"
                   name="username"
@@ -60,7 +62,7 @@ const Register = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Email</Form.Label>
+                <Form.Label style={{ color: PRIMARY_COLOR }}>Email</Form.Label>
                 <Form.Control
                   type="email"
                   name="email"
@@ -72,7 +74,9 @@ const Register = () => {
               </Form.Group>
 
               <Form.Group className="mb-3">
-                <Form.Label>Password</Form.Label>
+                <Form.Label style={{ color: PRIMARY_COLOR }}>
+                  Password
+                </Form.Label>
                 <Form.Control
                   type="password"
                   name="password"
@@ -94,6 +98,21 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <style>{`
+        #label_input::placeholder {
+          font-size: 16px;
+          font-family: Asap;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        .sidebar {
+          display: none; /* Hide the sidebar */
+        }
+      `}</style>
     </section>
   );
 };

@@ -1,28 +1,77 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect, useContext } from 'react';
 import Radar from "radar-sdk-js";
 import "radar-sdk-js/dist/radar.css";
+import * as L from "leaflet";
+import MapContext from "./MapContext";
 import "../sidebar.css";
 import "./locModal.css";
 import Modal from 'react-bootstrap/Modal';
 import getUserInfo from "../utilities/decodeJwt";
+import axios from 'axios';
 
 // Radar public key
 Radar.initialize("prj_live_pk_b4d3412f3d0dd3a0954d78d19f342d06f0bbddff");
 
-const Sidebar = () => {
-    let addressA = null;
-    let addressB = null;
+// Create markers A and B
+const markerAPath = "/markerA.png";
+const markerA = L.icon({
+    iconUrl: markerAPath,
+    iconSize: [32, 43],
+    iconAnchor: [16,43],
+    popupAnchor: [0, -43]
+})
+
+const markerBPath = "/markerB.png";
+const markerB = L.icon({
+    iconUrl: markerBPath,
+    iconSize: [32, 43],
+    iconAnchor: [16,43],
+    popupAnchor: [0, -43]
+})
+
+const Sidebar = ({ onAddressSelection }) => {
+    const [addressA, setAddressA] = useState(null);
+    const [addressB, setAddressB] = useState(null);
     const [user, setUser] = useState();
+    const map = useContext(MapContext);
+
+    console.log(map); 
 
     useEffect(() => {
-      setUser(getUserInfo());
-    }, []);
-  
+        setUser(getUserInfo());
+    }, []); 
+
+
+    /* Handle route generation requests */
+    const getNearestStation = async (latitude, longitude) => {
+        try {
+            const response = await axios.get(
+                `https://api-v3.mbta.com/stops?filter[latitude]=${latitude}&filter[longitude]=${longitude}&filter[radius]=0.1&filter[location_type]=1`,
+                {
+                    headers: {
+                        accept: "application/vnd.api+json"
+                    }
+                }
+            );
+            return response.data.data[0];
+        } catch (error) {
+            console.error("Error fetching closest MBTA station:", error);
+        }
+    }
+
+    const handleGoButton = () => {
+        var firstStation = getNearestStation(addressA.latitude, addressB.longitude);
+        var lastStation = getNearestStation(addressA.latitude, addressB.longitude);
+    }
 
     // Modal initialization
     const [showPopup, setPopupShow] = useState(false);
 
     useLayoutEffect(() => {
+        function createMarker(address, chosenMarker, map) {
+            const startMarker = L.marker([address.latitude, address.longitude], { icon: chosenMarker }).addTo(map);
+        }
+
         // save location buttons
         const saveB = document.getElementById("save_b");
         let selectedAddress = null; 
@@ -32,17 +81,19 @@ const Sidebar = () => {
             const input = event.target;
             if (input.id === 'starting_location') {
                 // Call Radar autocomplete with starting_location container ID
-                    Radar.ui.autocomplete({
-                        container: 'starting_location',
-                        width: '252px',
-                        response: true,
-                        limit: 5,
-                        minCharacters: 3,
-                        onSelection: (address) => {
-                            addressA = address;
-                            selectedAddress = address;
-                        }
-                    });
+                Radar.ui.autocomplete({
+                    container: 'starting_location',
+                    width: '252px',
+                    response: true,
+                    limit: 5,
+                    minCharacters: 3,
+                    showMarkers: true,
+                    onSelection: (address) => {
+                        setAddressA(address);
+                        createMarker(address, markerA, map);
+                        selectedAddress = address;
+                    }
+                });
             }
         }
 
@@ -60,7 +111,8 @@ const Sidebar = () => {
                     showMarkers: true,
                     markerColor: '#acbdc8',
                     onSelection: (address) => {
-                        addressB = address;
+                        setAddressB(address);
+                        createMarker(address, markerB, map);
                         selectedAddress = address;
                     }
                 });
@@ -171,7 +223,7 @@ const Sidebar = () => {
                 console.error("Error saving location:", error);
             }
         }
-    })
+    }, [map])
 
     return (
         <>
@@ -216,7 +268,7 @@ const Sidebar = () => {
                         Enter a starting location and destination to get route recommendations.
                     </span>
                 </div>
-                <button id="go_button" className="y_button">GO</button>
+                <button id="go_button" className="y_button" onClick={handleGoButton}>GO</button>
                 <div className="sidebar_arrow"></div>
             </div>
         </>

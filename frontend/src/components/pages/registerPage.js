@@ -4,13 +4,17 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const PRIMARY_COLOR = "#003DA5"; // MBTA Blue for background
+const PRIMARY_COLOR = "#8ab6d9"; // MBTA Blue for background
 const SECONDARY_COLOR = "#FFFFFF"; // White for text
 
 const url = `${process.env.REACT_APP_BACKEND_SERVER_URI}/user/signup`;
 
 const Register = () => {
-  const [data, setData] = useState({ username: "", email: "", password: "" });
+  const [data, setData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -47,6 +51,7 @@ const Register = () => {
                   {error}
                 </div>
               )}
+
               <Form.Group className="mb-3">
                 <Form.Label style={{ color: PRIMARY_COLOR }}>
                   Username

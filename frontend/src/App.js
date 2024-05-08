@@ -11,9 +11,10 @@ import Signup from "./components/pages/registerPage";
 import PrivateUserProfile from "./components/pages/privateUserProfilePage";
 import getUserInfo from "./utilities/decodeJwt";
 import AccountManagementPage from "./components/pages/accountManagementPage";
+import EditUserPage from "./components/pages/editUserPage";
 import SavedLocations from "./components/pages/userLocationsPage";
 import LocationDetails from "./components/pages/locationDetailsPage";
-
+import HelpPage from "./components/pages/helpPage";
 
 export const UserContext = createContext();
 
@@ -36,9 +37,18 @@ const App = () => {
           <Route exact path="/signup" element={<Signup />} />
           <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
           <Route path="/userInfo" element={<HomePage />} />
-          <Route exact path="/accountManagementPage" element={<AccountManagementPage />} />
+          <Route path="/help" element={<HelpPage />} />
+          <Route
+            exact
+            path="/accountManagementPage"
+            element={<AccountManagementPage />}
+          />
+          <Route path="/editUser" element={<EditUserPage />} />
           <Route exact path="/userLocationsPage" element={<SavedLocations />} />
-          <Route path="/locationDetailsPage/:locationId" element={<LocationDetails />} />
+          <Route
+            path="/locationDetailsPage/:locationId"
+            element={<LocationDetails />}
+          />
         </Routes>
       </UserContext.Provider>
     </>

@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import getUserInfo from "../../utilities/decodeJwt";
 
-const PRIMARY_COLOR = "#003DA5";
+const PRIMARY_COLOR = "#8ab6d9";
 const SECONDARY_COLOR = "#FFFFFF";
 const url = `${process.env.REACT_APP_BACKEND_SERVER_URI}/user/login`;
 

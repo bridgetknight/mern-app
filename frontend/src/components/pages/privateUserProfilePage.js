@@ -4,28 +4,37 @@ import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import getUserInfo from "../../utilities/decodeJwt";
 
-//link to service
-//http://localhost:8096/privateUserProfile
+const PRIMARY_COLOR = "#8ab6d9";
+const SECONDARY_COLOR = "#000000";
 
 const PrivateUserProfile = () => {
   const [show, setShow] = useState(false);
   const [user, setUser] = useState({});
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const navigate = useNavigate();
 
-  // handle logout button
-  const handleLogout = (async) => {
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // Handle logout button
+  const handleLogout = () => {
     localStorage.clear();
     navigate("/");
   };
 
   useEffect(() => {
-    setUser(getUserInfo());
+    const userInfo = getUserInfo();
+    if (userInfo) setUser(userInfo); // Set user only if it's not undefined
   }, []);
 
-  // 	<span><b>{<FollowerCount username = {username}/>}</b></span>&nbsp;
-  // <span><b>{<FollowingCount username = {username}/>}</b></span>;
+  // Redirect to this page after successful account update
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    if (queryParams.get("accountUpdated")) {
+      handleShow(); // Show modal after redirect
+    }
+  }, []);
+
+  // eslint-disable-next-line no-unused-vars
   if (!user)
     return (
       <div>
@@ -33,12 +42,15 @@ const PrivateUserProfile = () => {
       </div>
     );
   return (
-    <div class="container">
-      <div class="col-md-12 text-center">
-        <h1>{user && user.username}</h1>
-        <div class="col-md-12 text-center">
+    <div className="container" style={{ backgroundColor: PRIMARY_COLOR }}>
+      <div className="col-md-12 text-center">
+        <h1 style={{ color: SECONDARY_COLOR }}>{user.username}</h1>
+        {/* Display additional user details */}
+        <p style={{ color: SECONDARY_COLOR }}>Email: {user.email}</p>
+
+        <div className="col-md-12 text-center">
           <>
-            <Button className="me-2" onClick={handleShow}>
+            <Button className="me-2" variant="secondary" onClick={handleShow}>
               Log Out
             </Button>
             <Modal
@@ -48,9 +60,13 @@ const PrivateUserProfile = () => {
               keyboard={false}
             >
               <Modal.Header closeButton>
-                <Modal.Title>Log Out</Modal.Title>
+                <Modal.Title style={{ color: SECONDARY_COLOR }}>
+                  Log Out
+                </Modal.Title>
               </Modal.Header>
-              <Modal.Body>Are you sure you want to Log Out?</Modal.Body>
+              <Modal.Body style={{ color: SECONDARY_COLOR }}>
+                Are you sure you want to Log Out?
+              </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                   Close

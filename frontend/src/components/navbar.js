@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import getUserInfo from "../utilities/decodeJwt";
 import { Container, Nav, Navbar as BootstrapNavbar } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 import styles from "../Navbar.module.css";
-import SubHeader from "../components/subheader"
+import SubHeader from "../components/subheader";
 
 // Here, we display our Navbar
 export default function Navbar() {
@@ -33,11 +32,11 @@ export default function Navbar() {
     }
   }
 
-    // handle logout button
-    const handleLogout = (async) => {
-      localStorage.clear();
-      navigate("/");
-    };
+  // handle logout button
+  const handleLogout = (async) => {
+    localStorage.clear();
+    navigate("/");
+  };
 
   // if (!user) return null   - for now, let's show the bar even not logged in.
   // we have an issue with getUserInfo() returning null after a few minutes
@@ -50,20 +49,42 @@ export default function Navbar() {
             MBTA Trip Assistant
           </BootstrapNavbar.Brand>
           <Nav style={{ position: "absolute", left: "200px", flex: 1 }}>
-            <Nav.Link href="/" className={styles.navLink}>Route Planner</Nav.Link>
-            <Nav.Link href="/userLocationsPage" className={styles.navLink}>Saved Locations</Nav.Link>
+            <Nav.Link href="/" className={styles.navLink}>
+              Route Planner
+            </Nav.Link>
+            <Nav.Link href="/userLocationsPage" className={styles.navLink}>
+              Saved Locations
+            </Nav.Link>
           </Nav>
           <Nav style={{ position: "absolute", right: "10px" }}>
-          {user && (
-            <>
-              <Nav.Link href="/accountManagementPage" className={styles.navLink}>Profile</Nav.Link>
-              <Nav.Link href="/" className={styles.navLink} onClick={handleLogout}>Log Out</Nav.Link>
-            </>
+            {user && (
+              <>
+                <Nav.Link
+                  href="/accountManagementPage"
+                  className={styles.navLink}
+                >
+                  Profile
+                </Nav.Link>
+                <Nav.Link
+                  href="/"
+                  className={styles.navLink}
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </Nav.Link>
+              </>
             )}
             {!user && (
               <>
-                <Nav.Link href="/login" className={styles.navLink}>Log In</Nav.Link>
-                <Nav.Link href="/signup" className={styles.navLink}>Register</Nav.Link>
+                <Nav.Link href="/login" className={styles.navLink}>
+                  Log In
+                </Nav.Link>
+                <Nav.Link href="/signup" className={styles.navLink}>
+                  Register
+                </Nav.Link>
+                <Nav.Link href="/help" className={styles.navLink}>
+                  Help
+                </Nav.Link>
               </>
             )}
           </Nav>
@@ -71,5 +92,5 @@ export default function Navbar() {
       </BootstrapNavbar>
       {renderSubHeader()}
     </>
-  )
+  );
 }

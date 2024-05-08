@@ -1,8 +1,17 @@
 const mongoose = require("mongoose");
 
-//user schema/model
 const newUserSchema = new mongoose.Schema(
   {
+    firstName: {
+      type: String,
+      required: true,
+      label: "firstName",
+    },
+    lastName: {
+      type: String,
+      required: true,
+      label: "lastName",
+    },
     username: {
       type: String,
       required: true,

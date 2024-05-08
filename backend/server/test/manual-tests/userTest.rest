@@ -1,0 +1,45 @@
+###
+# POST - User Signup (Correct Usage)
+POST http://localhost:8081/user/signup
+Content-Type: application/json 
+
+{
+    "username": "juliexo",
+    "email": "julie@gmail.com",
+    "password": "julie12345"
+}
+
+###
+# POST - User Login (Correct Usage)
+POST http://localhost:8081/user/login
+Content-Type: application/json 
+
+{
+    "username": "julie123",
+    "password": "julie12345"
+}
+
+###
+# GET - Fetch User by ID (Correct Usage)
+GET http://localhost:8081/user/getUserById/635ab8dfc407faf9f73deaf1
+Content-Type: application/json 
+
+###
+# GET - Fetch Another User by ID (Correct Usage)
+GET http://localhost:8081/user/getUserById/634edb2a16710b2cda6fb370
+Content-Type: application/json 
+
+###
+# PUT - Edit User Details (Correct Usage)
+PUT http://localhost:8081/user/editUser/635ab8dfc407faf9f73deaf2
+Content-Type: application/json 
+
+{
+    "username": "julie Edit",
+    "password": "dwwrwr"
+}
+
+###
+# DELETE - Delete All Users (Assuming Admin Privileges)
+DELETE http://localhost:8081/user/deleteAll
+Content-Type: application/json 

@@ -86,7 +86,7 @@ const Sidebar = ({ onAddressSelection }) => {
         return new Promise((resolve, reject) => {
             try {
                 axios.get(
-                    `https://api-v3.mbta.com/stops?filter[latitude]=${latitude}&filter[longitude]=${longitude}&filter[radius]=0.01&filter[location_type]=1`,
+                    `https://api-v3.mbta.com/stops?filter[latitude]=${latitude}&filter[longitude]=${longitude}&filter[radius]=0.1&filter[location_type]=1`,
                     {
                         headers: {
                             accept: "application/vnd.api+json"
@@ -138,6 +138,7 @@ const Sidebar = ({ onAddressSelection }) => {
             setShowRouteInfo(true);
         } catch (error) {
             console.error("Error fetching nearest stations:", error);
+            alert("No direct paths were found.");
         }
     }
 

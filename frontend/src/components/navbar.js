@@ -72,6 +72,9 @@ export default function Navbar() {
                 >
                   Log Out
                 </Nav.Link>
+                <Nav.Link href="/help" className={styles.navLink}>
+                  Help
+                </Nav.Link>
               </>
             )}
             {!user && (

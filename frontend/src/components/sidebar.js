@@ -138,6 +138,7 @@ const Sidebar = ({ onAddressSelection }) => {
             setShowRouteInfo(true);
         } catch (error) {
             console.error("Error fetching nearest stations:", error);
+            alert("No direct paths were found.");
         }
     }
 

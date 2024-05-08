@@ -14,6 +14,7 @@ const deleteUser = require('./routes/userDeleteAll')
 // routes for Route model
 const getAllRoutes = require("./routes/routeGetAll")
 const deleteAllRoutes = require("./routes/routeDeleteAll.js")
+const deleteRouteById = require("./routes/routeDeleteById.js")
 const getRouteById = require("./routes/routeGetById.js")
 const saveRoute = require("./routes/routeSaveRoute.js")
 const editRoute = require("./routes/routeEditRoute.js")
@@ -50,6 +51,7 @@ app.use("/route", saveRoute)
 app.use("/route", getRouteById)
 app.use("/route", editRoute)
 app.use("/route", deleteAllRoutes)
+app.use("/route", deleteRouteById)
 
 // Location model
 app.use('/locations', addLocation)

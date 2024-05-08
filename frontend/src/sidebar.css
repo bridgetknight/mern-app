@@ -67,6 +67,22 @@ a {
     top: 65px;
 }
 
+.clear_input {
+    position: absolute;
+    font-size: 13px;
+    left: 70px;
+    color: #fff;
+    font-family: "Asap";
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+    padding-top: 0px;
+}
+
+#clear_a {
+    top: 65px;
+}
+
 #location_inputs {
     padding-left: 65px;
     padding-top: 65px;

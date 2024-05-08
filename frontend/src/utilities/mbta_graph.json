@@ -1,0 +1,1739 @@
+{
+    "options": {
+        "directed": true,
+        "multigraph": false,
+        "compound": false
+    },
+    "nodes": [
+        {
+            "v": "place-welln",
+            "value": {
+                "label": "place-welln"
+            }
+        },
+        {
+            "v": "place-brntn",
+            "value": {
+                "label": "place-brntn"
+            }
+        },
+        {
+            "v": "place-woodl",
+            "value": {
+                "label": "place-woodl"
+            }
+        },
+        {
+            "v": "place-mvbcl",
+            "value": {
+                "label": "place-mvbcl"
+            }
+        },
+        {
+            "v": "place-sstat",
+            "value": {
+                "label": "place-sstat"
+            }
+        },
+        {
+            "v": "place-gover",
+            "value": {
+                "label": "place-gover"
+            }
+        },
+        {
+            "v": "place-hymnl",
+            "value": {
+                "label": "place-hymnl"
+            }
+        },
+        {
+            "v": "place-bland",
+            "value": {
+                "label": "place-bland"
+            }
+        },
+        {
+            "v": "place-harsq",
+            "value": {
+                "label": "place-harsq"
+            }
+        },
+        {
+            "v": "place-qnctr",
+            "value": {
+                "label": "place-qnctr"
+            }
+        },
+        {
+            "v": "place-brmnl",
+            "value": {
+                "label": "place-brmnl"
+            }
+        },
+        {
+            "v": "place-chmnl",
+            "value": {
+                "label": "place-chmnl"
+            }
+        },
+        {
+            "v": "place-buest",
+            "value": {
+                "label": "place-buest"
+            }
+        },
+        {
+            "v": "place-chhil",
+            "value": {
+                "label": "place-chhil"
+            }
+        },
+        {
+            "v": "place-engav",
+            "value": {
+                "label": "place-engav"
+            }
+        },
+        {
+            "v": "place-ogmnl",
+            "value": {
+                "label": "place-ogmnl"
+            }
+        },
+        {
+            "v": "place-haecl",
+            "value": {
+                "label": "place-haecl"
+            }
+        },
+        {
+            "v": "place-waban",
+            "value": {
+                "label": "place-waban"
+            }
+        },
+        {
+            "v": "place-sbmnl",
+            "value": {
+                "label": "place-sbmnl"
+            }
+        },
+        {
+            "v": "place-rcmnl",
+            "value": {
+                "label": "place-rcmnl"
+            }
+        },
+        {
+            "v": "place-symcl",
+            "value": {
+                "label": "place-symcl"
+            }
+        },
+        {
+            "v": "place-longw",
+            "value": {
+                "label": "place-longw"
+            }
+        },
+        {
+            "v": "place-astao",
+            "value": {
+                "label": "place-astao"
+            }
+        },
+        {
+            "v": "place-mlmnl",
+            "value": {
+                "label": "place-mlmnl"
+            }
+        },
+        {
+            "v": "place-brdwy",
+            "value": {
+                "label": "place-brdwy"
+            }
+        },
+        {
+            "v": "place-kencl",
+            "value": {
+                "label": "place-kencl"
+            }
+        },
+        {
+            "v": "place-bndhl",
+            "value": {
+                "label": "place-bndhl"
+            }
+        },
+        {
+            "v": "place-fldcr",
+            "value": {
+                "label": "place-fldcr"
+            }
+        },
+        {
+            "v": "place-smary",
+            "value": {
+                "label": "place-smary"
+            }
+        },
+        {
+            "v": "place-andrw",
+            "value": {
+                "label": "place-andrw"
+            }
+        },
+        {
+            "v": "place-bcnfd",
+            "value": {
+                "label": "place-bcnfd"
+            }
+        },
+        {
+            "v": "place-shmnl",
+            "value": {
+                "label": "place-shmnl"
+            }
+        },
+        {
+            "v": "place-bucen",
+            "value": {
+                "label": "place-bucen"
+            }
+        },
+        {
+            "v": "place-hwsst",
+            "value": {
+                "label": "place-hwsst"
+            }
+        },
+        {
+            "v": "place-river",
+            "value": {
+                "label": "place-river"
+            }
+        },
+        {
+            "v": "place-bcnwa",
+            "value": {
+                "label": "place-bcnwa"
+            }
+        },
+        {
+            "v": "place-kntst",
+            "value": {
+                "label": "place-kntst"
+            }
+        },
+        {
+            "v": "place-bckhl",
+            "value": {
+                "label": "place-bckhl"
+            }
+        },
+        {
+            "v": "place-rugg",
+            "value": {
+                "label": "place-rugg"
+            }
+        },
+        {
+            "v": "place-dwnxg",
+            "value": {
+                "label": "place-dwnxg"
+            }
+        },
+        {
+            "v": "place-jfk",
+            "value": {
+                "label": "place-jfk"
+            }
+        },
+        {
+            "v": "place-chswk",
+            "value": {
+                "label": "place-chswk"
+            }
+        },
+        {
+            "v": "place-hsmnl",
+            "value": {
+                "label": "place-hsmnl"
+            }
+        },
+        {
+            "v": "place-clmnl",
+            "value": {
+                "label": "place-clmnl"
+            }
+        },
+        {
+            "v": "place-wrnst",
+            "value": {
+                "label": "place-wrnst"
+            }
+        },
+        {
+            "v": "place-wondl",
+            "value": {
+                "label": "place-wondl"
+            }
+        },
+        {
+            "v": "place-eliot",
+            "value": {
+                "label": "place-eliot"
+            }
+        },
+        {
+            "v": "place-sumav",
+            "value": {
+                "label": "place-sumav"
+            }
+        },
+        {
+            "v": "place-state",
+            "value": {
+                "label": "place-state"
+            }
+        },
+        {
+            "v": "place-wlsta",
+            "value": {
+                "label": "place-wlsta"
+            }
+        },
+        {
+            "v": "place-aport",
+            "value": {
+                "label": "place-aport"
+            }
+        },
+        {
+            "v": "place-lech",
+            "value": {
+                "label": "place-lech"
+            }
+        },
+        {
+            "v": "place-jaksn",
+            "value": {
+                "label": "place-jaksn"
+            }
+        },
+        {
+            "v": "place-rvrwy",
+            "value": {
+                "label": "place-rvrwy"
+            }
+        },
+        {
+            "v": "place-fenwd",
+            "value": {
+                "label": "place-fenwd"
+            }
+        },
+        {
+            "v": "place-grigg",
+            "value": {
+                "label": "place-grigg"
+            }
+        },
+        {
+            "v": "place-ccmnl",
+            "value": {
+                "label": "place-ccmnl"
+            }
+        },
+        {
+            "v": "place-knncl",
+            "value": {
+                "label": "place-knncl"
+            }
+        },
+        {
+            "v": "place-aqucl",
+            "value": {
+                "label": "place-aqucl"
+            }
+        },
+        {
+            "v": "place-armnl",
+            "value": {
+                "label": "place-armnl"
+            }
+        },
+        {
+            "v": "place-denrd",
+            "value": {
+                "label": "place-denrd"
+            }
+        },
+        {
+            "v": "place-qamnl",
+            "value": {
+                "label": "place-qamnl"
+            }
+        },
+        {
+            "v": "place-brkhl",
+            "value": {
+                "label": "place-brkhl"
+            }
+        },
+        {
+            "v": "place-stplb",
+            "value": {
+                "label": "place-stplb"
+            }
+        },
+        {
+            "v": "place-coecl",
+            "value": {
+                "label": "place-coecl"
+            }
+        },
+        {
+            "v": "place-rbmnl",
+            "value": {
+                "label": "place-rbmnl"
+            }
+        },
+        {
+            "v": "place-chill",
+            "value": {
+                "label": "place-chill"
+            }
+        },
+        {
+            "v": "place-masta",
+            "value": {
+                "label": "place-masta"
+            }
+        },
+        {
+            "v": "place-forhl",
+            "value": {
+                "label": "place-forhl"
+            }
+        },
+        {
+            "v": "place-sthld",
+            "value": {
+                "label": "place-sthld"
+            }
+        },
+        {
+            "v": "place-mispk",
+            "value": {
+                "label": "place-mispk"
+            }
+        },
+        {
+            "v": "place-wimnl",
+            "value": {
+                "label": "place-wimnl"
+            }
+        },
+        {
+            "v": "place-asmnl",
+            "value": {
+                "label": "place-asmnl"
+            }
+        },
+        {
+            "v": "place-tumnl",
+            "value": {
+                "label": "place-tumnl"
+            }
+        },
+        {
+            "v": "place-prmnl",
+            "value": {
+                "label": "place-prmnl"
+            }
+        },
+        {
+            "v": "place-alsgr",
+            "value": {
+                "label": "place-alsgr"
+            }
+        },
+        {
+            "v": "place-harvd",
+            "value": {
+                "label": "place-harvd"
+            }
+        },
+        {
+            "v": "place-wascm",
+            "value": {
+                "label": "place-wascm"
+            }
+        },
+        {
+            "v": "place-nqncy",
+            "value": {
+                "label": "place-nqncy"
+            }
+        },
+        {
+            "v": "place-pktrm",
+            "value": {
+                "label": "place-pktrm"
+            }
+        },
+        {
+            "v": "place-bmmnl",
+            "value": {
+                "label": "place-bmmnl"
+            }
+        },
+        {
+            "v": "place-newto",
+            "value": {
+                "label": "place-newto"
+            }
+        },
+        {
+            "v": "place-north",
+            "value": {
+                "label": "place-north"
+            }
+        },
+        {
+            "v": "place-spmnl",
+            "value": {
+                "label": "place-spmnl"
+            }
+        },
+        {
+            "v": "place-mfa",
+            "value": {
+                "label": "place-mfa"
+            }
+        },
+        {
+            "v": "place-stpul",
+            "value": {
+                "label": "place-stpul"
+            }
+        },
+        {
+            "v": "place-lake",
+            "value": {
+                "label": "place-lake"
+            }
+        },
+        {
+            "v": "place-fenwy",
+            "value": {
+                "label": "place-fenwy"
+            }
+        },
+        {
+            "v": "place-cool",
+            "value": {
+                "label": "place-cool"
+            }
+        },
+        {
+            "v": "place-alfcl",
+            "value": {
+                "label": "place-alfcl"
+            }
+        },
+        {
+            "v": "place-lngmd",
+            "value": {
+                "label": "place-lngmd"
+            }
+        },
+        {
+            "v": "place-cntsq",
+            "value": {
+                "label": "place-cntsq"
+            }
+        },
+        {
+            "v": "place-boyls",
+            "value": {
+                "label": "place-boyls"
+            }
+        },
+        {
+            "v": "place-bbsta",
+            "value": {
+                "label": "place-bbsta"
+            }
+        },
+        {
+            "v": "place-davis",
+            "value": {
+                "label": "place-davis"
+            }
+        },
+        {
+            "v": "place-bvmnl",
+            "value": {
+                "label": "place-bvmnl"
+            }
+        },
+        {
+            "v": "place-grnst",
+            "value": {
+                "label": "place-grnst"
+            }
+        },
+        {
+            "v": "place-chncl",
+            "value": {
+                "label": "place-chncl"
+            }
+        },
+        {
+            "v": "place-sougr",
+            "value": {
+                "label": "place-sougr"
+            }
+        },
+        {
+            "v": "place-portr",
+            "value": {
+                "label": "place-portr"
+            }
+        },
+        {
+            "v": "place-smmnl",
+            "value": {
+                "label": "place-smmnl"
+            }
+        },
+        {
+            "v": "place-brico",
+            "value": {
+                "label": "place-brico"
+            }
+        },
+        {
+            "v": "place-rsmnl",
+            "value": {
+                "label": "place-rsmnl"
+            }
+        },
+        {
+            "v": "place-bomnl",
+            "value": {
+                "label": "place-bomnl"
+            }
+        },
+        {
+            "v": "place-orhte",
+            "value": {
+                "label": "place-orhte"
+            }
+        },
+        {
+            "v": "place-nuniv",
+            "value": {
+                "label": "place-nuniv"
+            }
+        },
+        {
+            "v": "place-tapst",
+            "value": {
+                "label": "place-tapst"
+            }
+        },
+        {
+            "v": "place-babck",
+            "value": {
+                "label": "place-babck"
+            }
+        },
+        {
+            "v": "place-plsgr",
+            "value": {
+                "label": "place-plsgr"
+            }
+        },
+        {
+            "v": "place-newtn",
+            "value": {
+                "label": "place-newtn"
+            }
+        },
+        {
+            "v": "place-sull",
+            "value": {
+                "label": "place-sull"
+            }
+        },
+        {
+            "v": "place-sdmnl",
+            "value": {
+                "label": "place-sdmnl"
+            }
+        },
+        {
+            "v": "place-buwst",
+            "value": {
+                "label": "place-buwst"
+            }
+        },
+        {
+            "v": "place-fbkst",
+            "value": {
+                "label": "place-fbkst"
+            }
+        }
+    ],
+    "edges": [
+        {
+            "v": "place-forhl",
+            "w": "place-grnst",
+            "value": {
+                "label": "edge place-forhl->place-grnst",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-grnst",
+            "w": "place-sbmnl",
+            "value": {
+                "label": "edge place-grnst->place-sbmnl",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-sbmnl",
+            "w": "place-jaksn",
+            "value": {
+                "label": "edge place-sbmnl->place-jaksn",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-jaksn",
+            "w": "place-rcmnl",
+            "value": {
+                "label": "edge place-jaksn->place-rcmnl",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-rcmnl",
+            "w": "place-rugg",
+            "value": {
+                "label": "edge place-rcmnl->place-rugg",
+                "travel_time": 1,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-rugg",
+            "w": "place-masta",
+            "value": {
+                "label": "edge place-rugg->place-masta",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-masta",
+            "w": "place-bbsta",
+            "value": {
+                "label": "edge place-masta->place-bbsta",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-bbsta",
+            "w": "place-tumnl",
+            "value": {
+                "label": "edge place-bbsta->place-tumnl",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-tumnl",
+            "w": "place-chncl",
+            "value": {
+                "label": "edge place-tumnl->place-chncl",
+                "travel_time": 1,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-chncl",
+            "w": "place-dwnxg",
+            "value": {
+                "label": "edge place-chncl->place-dwnxg",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-dwnxg",
+            "w": "place-state",
+            "value": {
+                "label": "edge place-dwnxg->place-state",
+                "travel_time": 1,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-state",
+            "w": "place-haecl",
+            "value": {
+                "label": "edge place-state->place-haecl",
+                "travel_time": 1,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-haecl",
+            "w": "place-north",
+            "value": {
+                "label": "edge place-haecl->place-north",
+                "travel_time": 1,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-north",
+            "w": "place-ccmnl",
+            "value": {
+                "label": "edge place-north->place-ccmnl",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-ccmnl",
+            "w": "place-sull",
+            "value": {
+                "label": "edge place-ccmnl->place-sull",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-sull",
+            "w": "place-welln",
+            "value": {
+                "label": "edge place-sull->place-welln",
+                "travel_time": 3,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-welln",
+            "w": "place-astao",
+            "value": {
+                "label": "edge place-welln->place-astao",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-astao",
+            "w": "place-mlmnl",
+            "value": {
+                "label": "edge place-astao->place-mlmnl",
+                "travel_time": 1,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-mlmnl",
+            "w": "place-ogmnl",
+            "value": {
+                "label": "edge place-mlmnl->place-ogmnl",
+                "travel_time": 2,
+                "line_color": "orange"
+            }
+        },
+        {
+            "v": "place-alfcl",
+            "w": "place-davis",
+            "value": {
+                "label": "edge place-alfcl->place-davis",
+                "travel_time": 3,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-davis",
+            "w": "place-portr",
+            "value": {
+                "label": "edge place-davis->place-portr",
+                "travel_time": 2,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-portr",
+            "w": "place-harsq",
+            "value": {
+                "label": "edge place-portr->place-harsq",
+                "travel_time": 3,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-harsq",
+            "w": "place-cntsq",
+            "value": {
+                "label": "edge place-harsq->place-cntsq",
+                "travel_time": 3,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-cntsq",
+            "w": "place-knncl",
+            "value": {
+                "label": "edge place-cntsq->place-knncl",
+                "travel_time": 2,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-knncl",
+            "w": "place-chmnl",
+            "value": {
+                "label": "edge place-knncl->place-chmnl",
+                "travel_time": 2,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-chmnl",
+            "w": "place-pktrm",
+            "value": {
+                "label": "edge place-chmnl->place-pktrm",
+                "travel_time": 3,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-pktrm",
+            "w": "place-dwnxg",
+            "value": {
+                "label": "edge place-pktrm->place-dwnxg",
+                "travel_time": 1,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-dwnxg",
+            "w": "place-sstat",
+            "value": {
+                "label": "edge place-dwnxg->place-sstat",
+                "travel_time": 2,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-sstat",
+            "w": "place-brdwy",
+            "value": {
+                "label": "edge place-sstat->place-brdwy",
+                "travel_time": 2,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-brdwy",
+            "w": "place-andrw",
+            "value": {
+                "label": "edge place-brdwy->place-andrw",
+                "travel_time": 2,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-andrw",
+            "w": "place-jfk",
+            "value": {
+                "label": "edge place-andrw->place-jfk",
+                "travel_time": 3,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-jfk",
+            "w": "place-shmnl",
+            "value": {
+                "label": "edge place-jfk->place-shmnl",
+                "travel_time": 3,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-shmnl",
+            "w": "place-fldcr",
+            "value": {
+                "label": "edge place-shmnl->place-fldcr",
+                "travel_time": 3,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-fldcr",
+            "w": "place-smmnl",
+            "value": {
+                "label": "edge place-fldcr->place-smmnl",
+                "travel_time": 2,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-smmnl",
+            "w": "place-asmnl",
+            "value": {
+                "label": "edge place-smmnl->place-asmnl",
+                "travel_time": 2,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-jfk",
+            "w": "place-nqncy",
+            "value": {
+                "label": "edge place-jfk->place-nqncy",
+                "travel_time": 8,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-nqncy",
+            "w": "place-wlsta",
+            "value": {
+                "label": "edge place-nqncy->place-wlsta",
+                "travel_time": 3,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-wlsta",
+            "w": "place-qnctr",
+            "value": {
+                "label": "edge place-wlsta->place-qnctr",
+                "travel_time": 3,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-qnctr",
+            "w": "place-qamnl",
+            "value": {
+                "label": "edge place-qnctr->place-qamnl",
+                "travel_time": 4,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-qamnl",
+            "w": "place-brntn",
+            "value": {
+                "label": "edge place-qamnl->place-brntn",
+                "travel_time": 4,
+                "line_color": "red"
+            }
+        },
+        {
+            "v": "place-bomnl",
+            "w": "place-gover",
+            "value": {
+                "label": "edge place-bomnl->place-gover",
+                "travel_time": 2,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-gover",
+            "w": "place-state",
+            "value": {
+                "label": "edge place-gover->place-state",
+                "travel_time": 1,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-state",
+            "w": "place-aqucl",
+            "value": {
+                "label": "edge place-state->place-aqucl",
+                "travel_time": 2,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-aqucl",
+            "w": "place-mvbcl",
+            "value": {
+                "label": "edge place-aqucl->place-mvbcl",
+                "travel_time": 2,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-mvbcl",
+            "w": "place-aport",
+            "value": {
+                "label": "edge place-mvbcl->place-aport",
+                "travel_time": 2,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-aport",
+            "w": "place-wimnl",
+            "value": {
+                "label": "edge place-aport->place-wimnl",
+                "travel_time": 2,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-wimnl",
+            "w": "place-orhte",
+            "value": {
+                "label": "edge place-wimnl->place-orhte",
+                "travel_time": 2,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-orhte",
+            "w": "place-sdmnl",
+            "value": {
+                "label": "edge place-orhte->place-sdmnl",
+                "travel_time": 2,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-sdmnl",
+            "w": "place-bmmnl",
+            "value": {
+                "label": "edge place-sdmnl->place-bmmnl",
+                "travel_time": 2,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-bmmnl",
+            "w": "place-rbmnl",
+            "value": {
+                "label": "edge place-bmmnl->place-rbmnl",
+                "travel_time": 2,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-rbmnl",
+            "w": "place-wondl",
+            "value": {
+                "label": "edge place-rbmnl->place-wondl",
+                "travel_time": 1,
+                "line_color": "blue"
+            }
+        },
+        {
+            "v": "place-lech",
+            "w": "place-spmnl",
+            "value": {
+                "label": "edge place-lech->place-spmnl",
+                "travel_time": 3,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-spmnl",
+            "w": "place-north",
+            "value": {
+                "label": "edge place-spmnl->place-north",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-north",
+            "w": "place-haecl",
+            "value": {
+                "label": "edge place-north->place-haecl",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-haecl",
+            "w": "place-gover",
+            "value": {
+                "label": "edge place-haecl->place-gover",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-gover",
+            "w": "place-pktrm",
+            "value": {
+                "label": "edge place-gover->place-pktrm",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-pktrm",
+            "w": "place-boyls",
+            "value": {
+                "label": "edge place-pktrm->place-boyls",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-boyls",
+            "w": "place-armnl",
+            "value": {
+                "label": "edge place-boyls->place-armnl",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-armnl",
+            "w": "place-coecl",
+            "value": {
+                "label": "edge place-armnl->place-coecl",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-coecl",
+            "w": "place-prmnl",
+            "value": {
+                "label": "edge place-coecl->place-prmnl",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-prmnl",
+            "w": "place-symcl",
+            "value": {
+                "label": "edge place-prmnl->place-symcl",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-symcl",
+            "w": "place-nuniv",
+            "value": {
+                "label": "edge place-symcl->place-nuniv",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-nuniv",
+            "w": "place-mfa",
+            "value": {
+                "label": "edge place-nuniv->place-mfa",
+                "travel_time": 3,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-mfa",
+            "w": "place-lngmd",
+            "value": {
+                "label": "edge place-mfa->place-lngmd",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-lngmd",
+            "w": "place-brmnl",
+            "value": {
+                "label": "edge place-lngmd->place-brmnl",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-brmnl",
+            "w": "place-fenwd",
+            "value": {
+                "label": "edge place-brmnl->place-fenwd",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-fenwd",
+            "w": "place-mispk",
+            "value": {
+                "label": "edge place-fenwd->place-mispk",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-mispk",
+            "w": "place-rvrwy",
+            "value": {
+                "label": "edge place-mispk->place-rvrwy",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-rvrwy",
+            "w": "place-bckhl",
+            "value": {
+                "label": "edge place-rvrwy->place-bckhl",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-bckhl",
+            "w": "place-hsmnl",
+            "value": {
+                "label": "edge place-bckhl->place-hsmnl",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-coecl",
+            "w": "place-hymnl",
+            "value": {
+                "label": "edge place-coecl->place-hymnl",
+                "travel_time": 3,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-hymnl",
+            "w": "place-kencl",
+            "value": {
+                "label": "edge place-hymnl->place-kencl",
+                "travel_time": 3,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-kencl",
+            "w": "place-fenwy",
+            "value": {
+                "label": "edge place-kencl->place-fenwy",
+                "travel_time": 6,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-fenwy",
+            "w": "place-longw",
+            "value": {
+                "label": "edge place-fenwy->place-longw",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-longw",
+            "w": "place-bvmnl",
+            "value": {
+                "label": "edge place-longw->place-bvmnl",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-bvmnl",
+            "w": "place-brkhl",
+            "value": {
+                "label": "edge place-bvmnl->place-brkhl",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-brkhl",
+            "w": "place-bcnfd",
+            "value": {
+                "label": "edge place-brkhl->place-bcnfd",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-bcnfd",
+            "w": "place-rsmnl",
+            "value": {
+                "label": "edge place-bcnfd->place-rsmnl",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-rsmnl",
+            "w": "place-chhil",
+            "value": {
+                "label": "edge place-rsmnl->place-chhil",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-chhil",
+            "w": "place-newto",
+            "value": {
+                "label": "edge place-chhil->place-newto",
+                "travel_time": 3,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-newto",
+            "w": "place-newtn",
+            "value": {
+                "label": "edge place-newto->place-newtn",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-newtn",
+            "w": "place-eliot",
+            "value": {
+                "label": "edge place-newtn->place-eliot",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-eliot",
+            "w": "place-waban",
+            "value": {
+                "label": "edge place-eliot->place-waban",
+                "travel_time": 4,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-waban",
+            "w": "place-woodl",
+            "value": {
+                "label": "edge place-waban->place-woodl",
+                "travel_time": 3,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-woodl",
+            "w": "place-river",
+            "value": {
+                "label": "edge place-woodl->place-river",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-kencl",
+            "w": "place-smary",
+            "value": {
+                "label": "edge place-kencl->place-smary",
+                "travel_time": 3,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-smary",
+            "w": "place-hwsst",
+            "value": {
+                "label": "edge place-smary->place-hwsst",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-hwsst",
+            "w": "place-kntst",
+            "value": {
+                "label": "edge place-hwsst->place-kntst",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-kntst",
+            "w": "place-stpul",
+            "value": {
+                "label": "edge place-kntst->place-stpul",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-stpul",
+            "w": "place-cool",
+            "value": {
+                "label": "edge place-stpul->place-cool",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-cool",
+            "w": "place-sumav",
+            "value": {
+                "label": "edge place-cool->place-sumav",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-sumav",
+            "w": "place-bndhl",
+            "value": {
+                "label": "edge place-sumav->place-bndhl",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-bndhl",
+            "w": "place-fbkst",
+            "value": {
+                "label": "edge place-bndhl->place-fbkst",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-fbkst",
+            "w": "place-bcnwa",
+            "value": {
+                "label": "edge place-fbkst->place-bcnwa",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-bcnwa",
+            "w": "place-tapst",
+            "value": {
+                "label": "edge place-bcnwa->place-tapst",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-tapst",
+            "w": "place-denrd",
+            "value": {
+                "label": "edge place-tapst->place-denrd",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-denrd",
+            "w": "place-engav",
+            "value": {
+                "label": "edge place-denrd->place-engav",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-engav",
+            "w": "place-clmnl",
+            "value": {
+                "label": "edge place-engav->place-clmnl",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-kencl",
+            "w": "place-bland",
+            "value": {
+                "label": "edge place-kencl->place-bland",
+                "travel_time": 5,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-bland",
+            "w": "place-buest",
+            "value": {
+                "label": "edge place-bland->place-buest",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-buest",
+            "w": "place-bucen",
+            "value": {
+                "label": "edge place-buest->place-bucen",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-bucen",
+            "w": "place-buwst",
+            "value": {
+                "label": "edge place-bucen->place-buwst",
+                "travel_time": 3,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-buwst",
+            "w": "place-stplb",
+            "value": {
+                "label": "edge place-buwst->place-stplb",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-stplb",
+            "w": "place-plsgr",
+            "value": {
+                "label": "edge place-stplb->place-plsgr",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-plsgr",
+            "w": "place-babck",
+            "value": {
+                "label": "edge place-plsgr->place-babck",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-babck",
+            "w": "place-brico",
+            "value": {
+                "label": "edge place-babck->place-brico",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-brico",
+            "w": "place-harvd",
+            "value": {
+                "label": "edge place-brico->place-harvd",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-harvd",
+            "w": "place-grigg",
+            "value": {
+                "label": "edge place-harvd->place-grigg",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-grigg",
+            "w": "place-alsgr",
+            "value": {
+                "label": "edge place-grigg->place-alsgr",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-alsgr",
+            "w": "place-wrnst",
+            "value": {
+                "label": "edge place-alsgr->place-wrnst",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-wrnst",
+            "w": "place-wascm",
+            "value": {
+                "label": "edge place-wrnst->place-wascm",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-wascm",
+            "w": "place-sthld",
+            "value": {
+                "label": "edge place-wascm->place-sthld",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-sthld",
+            "w": "place-chswk",
+            "value": {
+                "label": "edge place-sthld->place-chswk",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-chswk",
+            "w": "place-chill",
+            "value": {
+                "label": "edge place-chswk->place-chill",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-chill",
+            "w": "place-sougr",
+            "value": {
+                "label": "edge place-chill->place-sougr",
+                "travel_time": 1,
+                "line_color": "green"
+            }
+        },
+        {
+            "v": "place-sougr",
+            "w": "place-lake",
+            "value": {
+                "label": "edge place-sougr->place-lake",
+                "travel_time": 2,
+                "line_color": "green"
+            }
+        }
+    ]
+}
